@@ -1,0 +1,27 @@
+services:
+  skyspot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://skyspot:skyspot@db:5432/skyspot
+
+  # -----------------------------------------------------------------------
+  # PostgreSQL — uncomment when ready to connect a real database
+  # -----------------------------------------------------------------------
+  # db:
+  #   image: postgres:16-alpine
+  #   restart: unless-stopped
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     POSTGRES_USER: skyspot
+  #     POSTGRES_PASSWORD: skyspot
+  #     POSTGRES_DB: skyspot
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+
+# volumes:
+#   pgdata:
