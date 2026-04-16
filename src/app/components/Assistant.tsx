@@ -3,8 +3,8 @@ import { ArrowUp, Bot, Sparkles, Loader2, Mic, MicOff, Volume2, VolumeX, Setting
 import { motion } from "motion/react";
 import { useColors } from "./ThemeContext";
 
-// n8n webhook URL — replace with your actual n8n webhook endpoint
-const N8N_WEBHOOK_URL = "https://liam-n8n-ca-ne.politeground-57293d7f.northeurope.azurecontainerapps.io:5678/webhook/skyspot-assistant/chat";
+// n8n webhook URL
+const N8N_WEBHOOK_URL = "https://liam-n8n-ca-ne.politeground-57293d7f.northeurope.azurecontainerapps.io/webhook/skyspot-assistant/chat";
 
 interface Message {
   id: string;
@@ -81,11 +81,20 @@ export default function Assistant() {
   const [showVoiceSettings, setShowVoiceSettings] = useState(false);
   const recognitionRef = useRef<any>(null);
 
+  // Persistent session ID for n8n chat memory
+  const [sessionId] = useState(() => {
+    let sid = sessionStorage.getItem("skyspot-session");
+    if (!sid) {
+      sid = "skyspot-" + Math.random().toString(36).slice(2, 10);
+      sessionStorage.setItem("skyspot-session", sid);
+    }
+    return sid;
+  });
+
   // Load available voices
   useEffect(() => {
     function loadVoices() {
       const v = window.speechSynthesis?.getVoices() || [];
-      // Filter to English voices, prioritise en-IE and en-GB
       const english = v.filter((voice) => voice.lang.startsWith("en"));
       const sorted = english.sort((a, b) => {
         const priority = (v: SpeechSynthesisVoice) => {
@@ -97,7 +106,6 @@ export default function Assistant() {
         return priority(a) - priority(b);
       });
       setVoices(sorted);
-      // Auto-select first en-IE voice if none persisted
       if (!selectedVoice && sorted.length > 0) {
         const irish = sorted.find((v) => v.lang === "en-IE");
         const pick = irish || sorted[0];
@@ -118,13 +126,11 @@ export default function Assistant() {
   // ─── TTS: Speak a message ───
   const speakMessage = useCallback(
     (msgId: string, text: string) => {
-      // If already speaking this message, stop
       if (speechState.speakingMsgId === msgId) {
         stopSpeaking();
         setSpeakingId(null);
         return;
       }
-      // Stop anything currently playing
       stopSpeaking();
 
       const cleaned = stripBold(text);
@@ -167,7 +173,6 @@ export default function Assistant() {
     lastMsgCountRef.current = messages.length;
     const last = messages[messages.length - 1];
     if (last?.role === "assistant") {
-      // Small delay so the message renders before speaking
       setTimeout(() => speakMessage(last.id, last.text), 300);
     }
   }, [messages, autoRead, speakMessage]);
@@ -203,7 +208,7 @@ export default function Assistant() {
     setListening(false);
   };
 
-  // ─── Send message (stops any playing speech first) ───
+  // ─── Send message ───
   const sendMessage = async (text: string) => {
     if (!text.trim() || loading) return;
     stopSpeaking();
@@ -218,14 +223,19 @@ export default function Assistant() {
       const res = await fetch(N8N_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: text.trim(), timestamp: new Date().toISOString() }),
-        signal: AbortSignal.timeout(15000),
+        body: JSON.stringify({
+          action: "sendMessage",
+          chatInput: text.trim(),
+          sessionId: sessionId,
+        }),
+        signal: AbortSignal.timeout(30000),
       });
       const data = await res.json();
+      const responseText = data.output || data.response || data.text || data.message || JSON.stringify(data);
       const reply: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        text: data.response || data.output || data.message,
+        text: responseText,
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, reply]);
@@ -308,7 +318,6 @@ export default function Assistant() {
             </div>
           </div>
 
-          {/* Voice settings button */}
           <button
             onClick={() => setShowVoiceSettings(!showVoiceSettings)}
             className="w-8 h-8 rounded-full flex items-center justify-center transition-colors"
@@ -318,7 +327,6 @@ export default function Assistant() {
           </button>
         </div>
 
-        {/* Voice settings panel */}
         {showVoiceSettings && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -331,7 +339,6 @@ export default function Assistant() {
               <span style={{ color: c.textSecondary }} className="text-[12px] font-medium">
                 Voice settings
               </span>
-              {/* Auto-read toggle */}
               <label className="flex items-center gap-2 cursor-pointer select-none">
                 <span style={{ color: c.textMuted }} className="text-[11px]">
                   Auto-read
@@ -348,7 +355,6 @@ export default function Assistant() {
                 </button>
               </label>
             </div>
-            {/* Voice dropdown */}
             <select
               value={selectedVoice}
               onChange={(e) => handleVoiceChange(e.target.value)}
@@ -366,7 +372,6 @@ export default function Assistant() {
               ))}
               {voices.length === 0 && <option>No voices available</option>}
             </select>
-            {/* Preview button */}
             <button
               onClick={() => {
                 stopSpeaking();
@@ -402,7 +407,8 @@ export default function Assistant() {
               Ask me anything
             </p>
             <p style={{ color: c.textMuted }} className="text-[12px] text-center mb-6 px-4">
-              I reason across live occupancy, weather, and historical data to help you park smarter. You can also tap the mic to speak.
+              I reason across live occupancy, weather, and historical data to help you park smarter. You can also tap the
+              mic to speak.
             </p>
             <div className="flex flex-wrap gap-2 justify-center">
               {suggestedQuestions.map((q) => (
@@ -442,7 +448,12 @@ export default function Assistant() {
                   style={
                     msg.role === "user"
                       ? { background: "#2D7EFF", color: "white", borderBottomRightRadius: 4 }
-                      : { background: c.card, border: `1px solid ${c.cardBorder}`, color: c.text, borderBottomLeftRadius: 4 }
+                      : {
+                          background: c.card,
+                          border: `1px solid ${c.cardBorder}`,
+                          color: c.text,
+                          borderBottomLeftRadius: 4,
+                        }
                   }
                 >
                   {renderText(msg.text)}
@@ -454,7 +465,6 @@ export default function Assistant() {
                   >
                     {formatTime(msg.timestamp)}
                   </span>
-                  {/* TTS button on assistant messages */}
                   {msg.role === "assistant" && (
                     <button
                       onClick={() => speakMessage(msg.id, msg.text)}
@@ -508,7 +518,6 @@ export default function Assistant() {
           className="flex items-center gap-2 p-1.5 rounded-2xl"
           style={{ background: c.card, border: `1px solid ${c.cardBorder}` }}
         >
-          {/* Mic button */}
           <button
             type="button"
             onClick={listening ? stopListening : startListening}
@@ -531,7 +540,6 @@ export default function Assistant() {
             disabled={loading}
           />
 
-          {/* Send button */}
           <button
             type="submit"
             disabled={!input.trim() || loading}
