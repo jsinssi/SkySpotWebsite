@@ -1,0 +1,4184 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535661391914186,
+          51.88263800369842
+        ]
+      },
+      "properties": {
+        "space_id": "A085",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A085"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535698029016316,
+          51.88263674730174
+        ]
+      },
+      "properties": {
+        "space_id": "A086",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A086"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535730595329321,
+          51.88263737550008
+        ]
+      },
+      "properties": {
+        "space_id": "A087",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A087"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535766214734169,
+          51.88263674730174
+        ]
+      },
+      "properties": {
+        "space_id": "A088",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A088"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535799798744454,
+          51.882635490905045
+        ]
+      },
+      "properties": {
+        "space_id": "A089",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A089"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535837453543868,
+          51.8826361191034
+        ]
+      },
+      "properties": {
+        "space_id": "A090",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A090"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535873072948716,
+          51.88263674730174
+        ]
+      },
+      "properties": {
+        "space_id": "A091",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A091"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535908692353567,
+          51.8826361191034
+        ]
+      },
+      "properties": {
+        "space_id": "A092",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A092"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535944311758414,
+          51.882635490905045
+        ]
+      },
+      "properties": {
+        "space_id": "A093",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A093"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53598298425511,
+          51.882634862706674
+        ]
+      },
+      "properties": {
+        "space_id": "A094",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A094"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536017585962675,
+          51.8826342345083
+        ]
+      },
+      "properties": {
+        "space_id": "A095",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A095"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536054223064808,
+          51.8826336063099
+        ]
+      },
+      "properties": {
+        "space_id": "A096",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A096"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536167187463041,
+          51.88263234991314
+        ]
+      },
+      "properties": {
+        "space_id": "A097",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A097"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536203824565172,
+          51.88263172171472
+        ]
+      },
+      "properties": {
+        "space_id": "A098",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A098"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53623944397002,
+          51.88263046531787
+        ]
+      },
+      "properties": {
+        "space_id": "A099",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A099"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536274045677589,
+          51.88263109351629
+        ]
+      },
+      "properties": {
+        "space_id": "A100",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A100"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536310682779721,
+          51.88263046531787
+        ]
+      },
+      "properties": {
+        "space_id": "A101",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A101"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536214653888448,
+          51.88279478011228
+        ]
+      },
+      "properties": {
+        "space_id": "A141",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A141"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536213127342528,
+          51.882772793237415
+        ]
+      },
+      "properties": {
+        "space_id": "A142",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A142"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536212618493886,
+          51.88275112045022
+        ]
+      },
+      "properties": {
+        "space_id": "A143",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A143"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536212109645248,
+          51.88272976175121
+        ]
+      },
+      "properties": {
+        "space_id": "A144",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A144"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536138835440985,
+          51.88272976175121
+        ]
+      },
+      "properties": {
+        "space_id": "A145",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A145"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536139853138268,
+          51.88275049225335
+        ]
+      },
+      "properties": {
+        "space_id": "A146",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A146"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536139853138268,
+          51.882772793237415
+        ]
+      },
+      "properties": {
+        "space_id": "A147",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A147"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536140361986906,
+          51.88279478011228
+        ]
+      },
+      "properties": {
+        "space_id": "A148",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A148"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535985672000136,
+          51.882795722406655
+        ]
+      },
+      "properties": {
+        "space_id": "A149",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A149"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535985672000136,
+          51.88277373553227
+        ]
+      },
+      "properties": {
+        "space_id": "A150",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A150"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535984145454213,
+          51.882750806351794
+        ]
+      },
+      "properties": {
+        "space_id": "A151",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A151"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535984145454213,
+          51.88272944765261
+        ]
+      },
+      "properties": {
+        "space_id": "A152",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A152"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535876269542381,
+          51.88272976175121
+        ]
+      },
+      "properties": {
+        "space_id": "A153",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A153"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535876269542381,
+          51.88275174864711
+        ]
+      },
+      "properties": {
+        "space_id": "A154",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A154"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535876778391021,
+          51.88277404963055
+        ]
+      },
+      "properties": {
+        "space_id": "A155",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A155"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535878304936945,
+          51.882796978799156
+        ]
+      },
+      "properties": {
+        "space_id": "A156",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A156"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535879831482868,
+          51.882818023368294
+        ]
+      },
+      "properties": {
+        "space_id": "A157",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A157"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535986077003558,
+          51.88281644252521
+        ]
+      },
+      "properties": {
+        "space_id": "A242",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A242"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536140835434631,
+          51.8828158772706
+        ]
+      },
+      "properties": {
+        "space_id": "A243",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A243"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536215009593905,
+          51.8828158772706
+        ]
+      },
+      "properties": {
+        "space_id": "A244",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A244"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536384419710762,
+          51.882759351774666
+        ]
+      },
+      "properties": {
+        "space_id": "A245",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A245"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5363835039804,
+          51.88278196198157
+        ]
+      },
+      "properties": {
+        "space_id": "A246",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A246"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536384419710762,
+          51.8828045721771
+        ]
+      },
+      "properties": {
+        "space_id": "A247",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A247"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.536384419710762,
+          51.88282718236127
+        ]
+      },
+      "properties": {
+        "space_id": "A248",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A248"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5363835039804,
+          51.88284922727986
+        ]
+      },
+      "properties": {
+        "space_id": "A249",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": false,
+        "notes": "original_db",
+        "marker-color": "#2ecc71",
+        "marker-size": "small",
+        "title": "A249"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53566188,
+          51.88272892
+        ]
+      },
+      "properties": {
+        "space_id": "A250",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120916",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A250"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53573832,
+          51.88272902
+        ]
+      },
+      "properties": {
+        "space_id": "A251",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120926",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A251"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53566266,
+          51.8827504
+        ]
+      },
+      "properties": {
+        "space_id": "A252",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120915",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A252"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535739060000001,
+          51.8827505
+        ]
+      },
+      "properties": {
+        "space_id": "A253",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120925",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A253"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53566402,
+          51.8827734
+        ]
+      },
+      "properties": {
+        "space_id": "A254",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120914",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A254"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53574048,
+          51.8827735
+        ]
+      },
+      "properties": {
+        "space_id": "A255",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120924",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A255"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535664180000001,
+          51.882795099999996
+        ]
+      },
+      "properties": {
+        "space_id": "A256",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120913",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A256"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53574062,
+          51.8827952
+        ]
+      },
+      "properties": {
+        "space_id": "A257",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120923",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A257"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53561966,
+          51.88263353999999
+        ]
+      },
+      "properties": {
+        "space_id": "A258",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121123",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A258"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53558486,
+          51.882633799999994
+        ]
+      },
+      "properties": {
+        "space_id": "A259",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121124",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A259"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53554766,
+          51.882634440000004
+        ]
+      },
+      "properties": {
+        "space_id": "A260",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121125",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A260"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535513159999999,
+          51.882634440000004
+        ]
+      },
+      "properties": {
+        "space_id": "A261",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121363",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A261"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53550742,
+          51.8827198
+        ]
+      },
+      "properties": {
+        "space_id": "A262",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120836",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A262"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53550888,
+          51.882742719999996
+        ]
+      },
+      "properties": {
+        "space_id": "A263",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120835",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A263"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535509620000001,
+          51.8827642
+        ]
+      },
+      "properties": {
+        "space_id": "A264",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120834",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A264"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53551102,
+          51.88278718
+        ]
+      },
+      "properties": {
+        "space_id": "A265",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120833",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A265"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53551118,
+          51.882808880000006
+        ]
+      },
+      "properties": {
+        "space_id": "A266",
+        "section": "Barrier / West",
+        "row_label": "A",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120832",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "A266"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535450399999998,
+          51.8826362
+        ]
+      },
+      "properties": {
+        "space_id": "B001",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121126",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B001"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53541524,
+          51.8826361
+        ]
+      },
+      "properties": {
+        "space_id": "B002",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121127",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B002"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535378040000001,
+          51.882636739999995
+        ]
+      },
+      "properties": {
+        "space_id": "B003",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121128",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B003"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53543492,
+          51.882721200000006
+        ]
+      },
+      "properties": {
+        "space_id": "B004",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120831",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B004"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53543638,
+          51.882744179999996
+        ]
+      },
+      "properties": {
+        "space_id": "B005",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120830",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B005"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535437120000001,
+          51.88276566
+        ]
+      },
+      "properties": {
+        "space_id": "B006",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120829",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B006"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53543852,
+          51.882788600000005
+        ]
+      },
+      "properties": {
+        "space_id": "B007",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120828",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B007"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53543868,
+          51.8828103
+        ]
+      },
+      "properties": {
+        "space_id": "B008",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120827",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B008"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53534324,
+          51.882637
+        ]
+      },
+      "properties": {
+        "space_id": "B009",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121129",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B009"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53530606,
+          51.88263766
+        ]
+      },
+      "properties": {
+        "space_id": "B010",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121130",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B010"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535271159999999,
+          51.88263872
+        ]
+      },
+      "properties": {
+        "space_id": "B011",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121131",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B011"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5352838,
+          51.8827214
+        ]
+      },
+      "properties": {
+        "space_id": "B012",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120826",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B012"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535285179999999,
+          51.88274431999999
+        ]
+      },
+      "properties": {
+        "space_id": "B013",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120825",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53528596,
+          51.8827658
+        ]
+      },
+      "properties": {
+        "space_id": "B014",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120824",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53528732,
+          51.8827888
+        ]
+      },
+      "properties": {
+        "space_id": "B015",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120823",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B015"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53528748,
+          51.88281049999999
+        ]
+      },
+      "properties": {
+        "space_id": "B016",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120822",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B016"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53523604,
+          51.88263859999999
+        ]
+      },
+      "properties": {
+        "space_id": "B017",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121132",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B017"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535198820000002,
+          51.88263924
+        ]
+      },
+      "properties": {
+        "space_id": "B018",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121133",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B018"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535164,
+          51.8826395
+        ]
+      },
+      "properties": {
+        "space_id": "B019",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121134",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B019"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5352105,
+          51.882723299999995
+        ]
+      },
+      "properties": {
+        "space_id": "B020",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120821",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B020"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53521192,
+          51.8827462
+        ]
+      },
+      "properties": {
+        "space_id": "B021",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120820",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B021"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53521266,
+          51.8827677
+        ]
+      },
+      "properties": {
+        "space_id": "B022",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120819",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53521408,
+          51.88279068000001
+        ]
+      },
+      "properties": {
+        "space_id": "B023",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120818",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B023"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5352142,
+          51.88281238
+        ]
+      },
+      "properties": {
+        "space_id": "B024",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120817",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B024"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53512684,
+          51.88264016000001
+        ]
+      },
+      "properties": {
+        "space_id": "B025",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121135",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B025"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53505988,
+          51.8826412
+        ]
+      },
+      "properties": {
+        "space_id": "B026",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121137",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53509504,
+          51.882641320000005
+        ]
+      },
+      "properties": {
+        "space_id": "B027",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121136",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B027"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5350588,
+          51.8827258
+        ]
+      },
+      "properties": {
+        "space_id": "B028",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120698",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B028"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53506022,
+          51.882748719999995
+        ]
+      },
+      "properties": {
+        "space_id": "B029",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120697",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B029"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.535061,
+          51.8827702
+        ]
+      },
+      "properties": {
+        "space_id": "B030",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120696",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B030"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53506238,
+          51.88279318
+        ]
+      },
+      "properties": {
+        "space_id": "B031",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120695",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B031"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53506252,
+          51.88281488
+        ]
+      },
+      "properties": {
+        "space_id": "B032",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120694",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B032"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53502272,
+          51.88264184
+        ]
+      },
+      "properties": {
+        "space_id": "B033",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121138",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B033"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53498788,
+          51.8826421
+        ]
+      },
+      "properties": {
+        "space_id": "B034",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121139",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5349507,
+          51.882642759999996
+        ]
+      },
+      "properties": {
+        "space_id": "B035",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121140",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B035"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5349868,
+          51.882726500000004
+        ]
+      },
+      "properties": {
+        "space_id": "B036",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120693",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534988219999999,
+          51.882749479999994
+        ]
+      },
+      "properties": {
+        "space_id": "B037",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120692",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B037"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53498896,
+          51.882770959999995
+        ]
+      },
+      "properties": {
+        "space_id": "B038",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120691",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B038"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53499038,
+          51.8827939
+        ]
+      },
+      "properties": {
+        "space_id": "B039",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120690",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B039"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53499052,
+          51.8828156
+        ]
+      },
+      "properties": {
+        "space_id": "B040",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120689",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B040"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53487914,
+          51.88264389999999
+        ]
+      },
+      "properties": {
+        "space_id": "B041",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121360",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B041"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534914259999999,
+          51.882644000000006
+        ]
+      },
+      "properties": {
+        "space_id": "B042",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121359",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B042"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53484192,
+          51.88264454
+        ]
+      },
+      "properties": {
+        "space_id": "B043",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121361",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5348071,
+          51.88264478
+        ]
+      },
+      "properties": {
+        "space_id": "B044",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121362",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B044"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53478662,
+          51.882732780000005
+        ]
+      },
+      "properties": {
+        "space_id": "B045",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120688",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B045"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534788019999999,
+          51.882755700000004
+        ]
+      },
+      "properties": {
+        "space_id": "B046",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120687",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53478882,
+          51.8827772
+        ]
+      },
+      "properties": {
+        "space_id": "B047",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120686",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B047"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53479018,
+          51.88280012
+        ]
+      },
+      "properties": {
+        "space_id": "B048",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120685",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B048"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53479032,
+          51.882821820000004
+        ]
+      },
+      "properties": {
+        "space_id": "B049",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120684",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B049"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53469614,
+          51.8826459
+        ]
+      },
+      "properties": {
+        "space_id": "B050",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121142",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B050"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534731260000001,
+          51.882646
+        ]
+      },
+      "properties": {
+        "space_id": "B051",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121141",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B051"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53465892,
+          51.882646539999996
+        ]
+      },
+      "properties": {
+        "space_id": "B052",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121143",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B052"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53471402,
+          51.88273432
+        ]
+      },
+      "properties": {
+        "space_id": "B053",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120664",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B053"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534715420000001,
+          51.8827573
+        ]
+      },
+      "properties": {
+        "space_id": "B054",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120663",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B054"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53471622,
+          51.88277878
+        ]
+      },
+      "properties": {
+        "space_id": "B055",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120662",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B055"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53471758,
+          51.8828017
+        ]
+      },
+      "properties": {
+        "space_id": "B056",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120661",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B056"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53471772,
+          51.88282339999999
+        ]
+      },
+      "properties": {
+        "space_id": "B057",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120660",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B057"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534624099999998,
+          51.88264678
+        ]
+      },
+      "properties": {
+        "space_id": "B058",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121144",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B058"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53458694,
+          51.88264743999999
+        ]
+      },
+      "properties": {
+        "space_id": "B059",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393121145",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B059"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534556519999999,
+          51.882656780000005
+        ]
+      },
+      "properties": {
+        "space_id": "B060",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120445",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B060"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53456252,
+          51.88273378
+        ]
+      },
+      "properties": {
+        "space_id": "B061",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120659",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B061"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53456398,
+          51.8827567
+        ]
+      },
+      "properties": {
+        "space_id": "B062",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120658",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B062"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53456474,
+          51.882778200000004
+        ]
+      },
+      "properties": {
+        "space_id": "B063",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120657",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B063"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53456612,
+          51.882801119999996
+        ]
+      },
+      "properties": {
+        "space_id": "B064",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120656",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B064"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53456628,
+          51.88282282
+        ]
+      },
+      "properties": {
+        "space_id": "B065",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120655",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B065"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534519419999999,
+          51.88265808
+        ]
+      },
+      "properties": {
+        "space_id": "B066",
+        "section": "Middle",
+        "row_label": "B",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120446",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "B066"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534484639999999,
+          51.882659000000004
+        ]
+      },
+      "properties": {
+        "space_id": "C001",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120447",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C001"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5344903,
+          51.88273538
+        ]
+      },
+      "properties": {
+        "space_id": "C002",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120654",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C002"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53449172,
+          51.8827583
+        ]
+      },
+      "properties": {
+        "space_id": "C003",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120653",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C003"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53449246,
+          51.8827798
+        ]
+      },
+      "properties": {
+        "space_id": "C004",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120652",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C004"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53449388,
+          51.88280278
+        ]
+      },
+      "properties": {
+        "space_id": "C005",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120651",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C005"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53449402,
+          51.88282448
+        ]
+      },
+      "properties": {
+        "space_id": "C006",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120650",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C006"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534447420000001,
+          51.88266028
+        ]
+      },
+      "properties": {
+        "space_id": "C007",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120448",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C007"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53441306,
+          51.882660480000006
+        ]
+      },
+      "properties": {
+        "space_id": "C008",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120441",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C008"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53437594,
+          51.88266154
+        ]
+      },
+      "properties": {
+        "space_id": "C009",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120442",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C009"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53434116,
+          51.882662200000006
+        ]
+      },
+      "properties": {
+        "space_id": "C010",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120443",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C010"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53430394,
+          51.88266324
+        ]
+      },
+      "properties": {
+        "space_id": "C011",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120444",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C011"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53426882,
+          51.88266432
+        ]
+      },
+      "properties": {
+        "space_id": "C012",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120437",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C012"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534334959999999,
+          51.882737
+        ]
+      },
+      "properties": {
+        "space_id": "C013",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120581",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53426232,
+          51.88273828
+        ]
+      },
+      "properties": {
+        "space_id": "C014",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120576",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53433638,
+          51.88275998
+        ]
+      },
+      "properties": {
+        "space_id": "C015",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120580",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C015"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53426372,
+          51.882761200000004
+        ]
+      },
+      "properties": {
+        "space_id": "C016",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120575",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C016"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53433714,
+          51.882781460000004
+        ]
+      },
+      "properties": {
+        "space_id": "C017",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120579",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C017"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53426452,
+          51.882782680000005
+        ]
+      },
+      "properties": {
+        "space_id": "C018",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120574",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C018"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53433852,
+          51.8828044
+        ]
+      },
+      "properties": {
+        "space_id": "C019",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120578",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C019"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53426588,
+          51.88280562
+        ]
+      },
+      "properties": {
+        "space_id": "C020",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120573",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C020"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53433868,
+          51.8828261
+        ]
+      },
+      "properties": {
+        "space_id": "C021",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120577",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C021"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53426602,
+          51.882827320000004
+        ]
+      },
+      "properties": {
+        "space_id": "C022",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120572",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53423162,
+          51.88266568
+        ]
+      },
+      "properties": {
+        "space_id": "C023",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120438",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C023"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53419684,
+          51.88266654
+        ]
+      },
+      "properties": {
+        "space_id": "C024",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120439",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C024"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53415972,
+          51.88266788
+        ]
+      },
+      "properties": {
+        "space_id": "C025",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120440",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C025"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53412572,
+          51.88266892
+        ]
+      },
+      "properties": {
+        "space_id": "C026",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120433",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53408862,
+          51.88267026
+        ]
+      },
+      "properties": {
+        "space_id": "C027",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120434",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C027"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53405384,
+          51.88267114
+        ]
+      },
+      "properties": {
+        "space_id": "C028",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120435",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C028"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.534108100000001,
+          51.8827451
+        ]
+      },
+      "properties": {
+        "space_id": "C029",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120567",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C029"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53410952,
+          51.88276802
+        ]
+      },
+      "properties": {
+        "space_id": "C030",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120568",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C030"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53411026,
+          51.8827895
+        ]
+      },
+      "properties": {
+        "space_id": "C031",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120569",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C031"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53411168,
+          51.8828125
+        ]
+      },
+      "properties": {
+        "space_id": "C032",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120570",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C032"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53411182,
+          51.882834200000005
+        ]
+      },
+      "properties": {
+        "space_id": "C033",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120571",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C033"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53401662,
+          51.88267246
+        ]
+      },
+      "properties": {
+        "space_id": "C034",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120436",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.533981639999999,
+          51.882673479999994
+        ]
+      },
+      "properties": {
+        "space_id": "C035",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120429",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C035"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53394452,
+          51.88267478
+        ]
+      },
+      "properties": {
+        "space_id": "C036",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120430",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53390974,
+          51.88267570000001
+        ]
+      },
+      "properties": {
+        "space_id": "C037",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120431",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C037"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53387262,
+          51.88267698
+        ]
+      },
+      "properties": {
+        "space_id": "C038",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120432",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C038"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53361882,
+          51.88268782
+        ]
+      },
+      "properties": {
+        "space_id": "C039",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120154",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C039"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53358182,
+          51.88269018
+        ]
+      },
+      "properties": {
+        "space_id": "C040",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120155",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C040"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53354714,
+          51.882692039999995
+        ]
+      },
+      "properties": {
+        "space_id": "C041",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120157",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C041"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.533510119999999,
+          51.88269438
+        ]
+      },
+      "properties": {
+        "space_id": "C042",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120156",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C042"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.533474819999999,
+          51.88269718
+        ]
+      },
+      "properties": {
+        "space_id": "C043",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120161",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53343782,
+          51.88269948
+        ]
+      },
+      "properties": {
+        "space_id": "C044",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120160",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C044"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53340314,
+          51.88270138
+        ]
+      },
+      "properties": {
+        "space_id": "C045",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120159",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C045"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53336612,
+          51.882703719999995
+        ]
+      },
+      "properties": {
+        "space_id": "C046",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120158",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.533330000000001,
+          51.88270558000001
+        ]
+      },
+      "properties": {
+        "space_id": "C047",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120165",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C047"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53329292,
+          51.882707919999994
+        ]
+      },
+      "properties": {
+        "space_id": "C048",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120164",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C048"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53325832,
+          51.882709780000006
+        ]
+      },
+      "properties": {
+        "space_id": "C049",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120163",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C049"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53331616,
+          51.8827965
+        ]
+      },
+      "properties": {
+        "space_id": "C050",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120425",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C050"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53331848,
+          51.882819399999995
+        ]
+      },
+      "properties": {
+        "space_id": "C051",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120426",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C051"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53332008,
+          51.88284083999999
+        ]
+      },
+      "properties": {
+        "space_id": "C052",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120427",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C052"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53332238,
+          51.882863799999996
+        ]
+      },
+      "properties": {
+        "space_id": "C053",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120428",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C053"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5332213,
+          51.88271216
+        ]
+      },
+      "properties": {
+        "space_id": "C054",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120162",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C054"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.533186539999999,
+          51.882713179999996
+        ]
+      },
+      "properties": {
+        "space_id": "C055",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120169",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C055"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.533149519999998,
+          51.88271558
+        ]
+      },
+      "properties": {
+        "space_id": "C056",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120168",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C056"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53311492,
+          51.88271741999999
+        ]
+      },
+      "properties": {
+        "space_id": "C057",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120167",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C057"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53307784,
+          51.88271978
+        ]
+      },
+      "properties": {
+        "space_id": "C058",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120166",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C058"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.533062319999999,
+          51.88281262
+        ]
+      },
+      "properties": {
+        "space_id": "C059",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393119733",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C059"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.533042720000001,
+          51.882721460000006
+        ]
+      },
+      "properties": {
+        "space_id": "C060",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120173",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C060"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53300572,
+          51.882723780000006
+        ]
+      },
+      "properties": {
+        "space_id": "C061",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120172",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C061"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.532971040000001,
+          51.88272568
+        ]
+      },
+      "properties": {
+        "space_id": "C062",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120171",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C062"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53302754,
+          51.88281448
+        ]
+      },
+      "properties": {
+        "space_id": "C063",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393119734",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C063"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53298744,
+          51.88281687999999
+        ]
+      },
+      "properties": {
+        "space_id": "C064",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393119736",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C064"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5329527,
+          51.88281872
+        ]
+      },
+      "properties": {
+        "space_id": "C065",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393119735",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C065"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.532934019999999,
+          51.882727980000006
+        ]
+      },
+      "properties": {
+        "space_id": "C066",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120170",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C066"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53289882,
+          51.88272938
+        ]
+      },
+      "properties": {
+        "space_id": "C067",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120177",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C067"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53286174,
+          51.88273177999999
+        ]
+      },
+      "properties": {
+        "space_id": "C068",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120176",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C068"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53291246,
+          51.88282194000001
+        ]
+      },
+      "properties": {
+        "space_id": "C069",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393119738",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C069"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53287772,
+          51.882823800000004
+        ]
+      },
+      "properties": {
+        "space_id": "C070",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393119737",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C070"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.532827119999999,
+          51.882733619999996
+        ]
+      },
+      "properties": {
+        "space_id": "C071",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120175",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C071"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53279012,
+          51.88273597999999
+        ]
+      },
+      "properties": {
+        "space_id": "C072",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393120174",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C072"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53283634,
+          51.882826339999994
+        ]
+      },
+      "properties": {
+        "space_id": "C073",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393119740",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C073"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.53280156,
+          51.88282822
+        ]
+      },
+      "properties": {
+        "space_id": "C074",
+        "section": "East",
+        "row_label": "C",
+        "space_type": "standard",
+        "is_new": true,
+        "notes": "osm_way_1393119739",
+        "marker-color": "#e74c3c",
+        "marker-size": "small",
+        "title": "C074"
+      }
+    }
+  ]
+}
