@@ -1,6 +1,7 @@
 """
-SkySpot API — v1.2
-Uses a materialized view (latest_occupancy) for fast space status lookups.
+SkySpot API — v1.3
+/api/spaces: finds MAX(generated_at) then fetches all 199 rows for that batch.
+Two fast indexed lookups — no materialized view needed.
 """
 import logging
 import os
@@ -33,7 +34,7 @@ async def lifespan(app: FastAPI):
     await engine.dispose()
 
 
-app = FastAPI(title="SkySpot API", version="1.2.0", lifespan=lifespan)
+app = FastAPI(title="SkySpot API", version="1.3.0", lifespan=lifespan)
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 
@@ -97,7 +98,11 @@ async def health_check():
     except Exception as exc:
         logger.warning("DB health check failed: %s", exc)
         db_ok = False
-    return HealthResponse(status="healthy" if db_ok else "degraded", service="skyspot-api", db_connected=db_ok)
+    return HealthResponse(
+        status="healthy" if db_ok else "degraded",
+        service="skyspot-api",
+        db_connected=db_ok,
+    )
 
 
 # ── Spaces ────────────────────────────────────────────────────────────────────
@@ -105,13 +110,31 @@ async def health_check():
 @app.get("/api/spaces", response_model=SpacesResponse)
 async def get_spaces():
     """
-    Reads from latest_occupancy materialized view (one row per space_id,
-    pre-computed) — fast regardless of how large occupancy_generated grows.
-    Real drone data from occupancy_real takes priority where available.
+    Step 1: SELECT MAX(generated_at) FROM occupancy_generated  — instant with index
+    Step 2: SELECT all rows WHERE generated_at = <that timestamp> — 199 rows, instant
+    Step 3: Overlay any real drone data from occupancy_real (small table)
     """
     try:
         async with async_session() as session:
-            # Real drone data (small table, always fast)
+
+            # 1. Most recent generated batch timestamp
+            max_ts_row = (await session.execute(text(
+                "SELECT MAX(generated_at) AS max_ts FROM occupancy_generated"
+            ))).fetchone()
+            max_ts = max_ts_row.max_ts if max_ts_row else None
+
+            # 2. All 199 rows for that batch
+            if max_ts:
+                gen_rows = (await session.execute(text(
+                    "SELECT space_id, status, confidence, generated_at AS observed_at, "
+                    "'generated' AS data_source "
+                    "FROM occupancy_generated "
+                    "WHERE generated_at = :ts"
+                ), {"ts": max_ts})).fetchall()
+            else:
+                gen_rows = []
+
+            # 3. Latest real drone observation per space (small table, always fast)
             real_rows = (await session.execute(text("""
                 SELECT DISTINCT ON (space_id)
                     space_id, status, confidence, observed_at, 'real' AS data_source
@@ -119,12 +142,7 @@ async def get_spaces():
                 ORDER BY space_id, observed_at DESC
             """))).fetchall()
 
-            # Latest generated — read from materialized view (instant)
-            gen_rows = (await session.execute(text("""
-                SELECT space_id, status, confidence, observed_at, data_source
-                FROM latest_occupancy
-            """))).fetchall()
-
+        # Merge — real takes priority over generated
         real_map = {r.space_id: r for r in real_rows}
         gen_map  = {r.space_id: r for r in gen_rows}
         all_ids  = sorted(set(real_map) | set(gen_map))
@@ -168,24 +186,6 @@ async def get_spaces():
 
     except Exception as exc:
         logger.exception("Failed to fetch spaces")
-        raise HTTPException(status_code=500, detail=str(exc))
-
-
-# ── Refresh materialized view ─────────────────────────────────────────────────
-
-@app.post("/api/spaces/refresh")
-async def refresh_occupancy():
-    """
-    Call this after inserting new generated data to update the materialized view.
-    Runs CONCURRENTLY so reads are not blocked.
-    """
-    try:
-        async with async_session() as session:
-            await session.execute(text("REFRESH MATERIALIZED VIEW CONCURRENTLY latest_occupancy"))
-            await session.commit()
-        return {"refreshed": True}
-    except Exception as exc:
-        logger.exception("Failed to refresh materialized view")
         raise HTTPException(status_code=500, detail=str(exc))
 
 

@@ -4,29 +4,27 @@ import {
   Bell, RefreshCw, ChevronRight, Satellite,
   Map as MapIcon, Loader2, AlertCircle,
 } from "lucide-react";
-import { useColors } from "./ThemeContext";
-import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import { useColors, useTheme } from "./ThemeContext";
+import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-
-// ── Full 199-space GeoJSON (bundled as JSON) ──────────────────────────────────
-// Copy Full_carpark__geojson → src/imports/full_carpark.json
-// Vite handles .json imports natively — no extra config needed
 import fullGeoJson from "../../imports/full_carpark.json";
 
-// ── Constants ─────────────────────────────────────────────────────────────────
-// Centre of the full 199-space car park (not just the Barrier section)
-const CAR_PARK_CENTER: [number, number] = [51.882747, -8.534587];
-const REFRESH_MS = 5 * 60 * 1000;
-
+// ── Tile definitions ──────────────────────────────────────────────────────────
 const TILES = {
-  street: {
+  // Light — standard colourful OSM
+  light: {
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   },
+  // Dark / AMOLED — CartoDB Dark Matter (no extra filter)
+  dark: {
+    url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  },
+  // Aerial — Esri World Imagery
   aerial: {
     url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-    attribution:
-      "Esri, DigitalGlobe, GeoEye, USDA FSA, USGS, AEX, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+    attribution: "Esri, DigitalGlobe, GeoEye, USDA FSA, USGS, AEX, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
   },
 };
 
@@ -49,21 +47,33 @@ interface SpacesResponse {
   data_source: string;
 }
 
-// GeoJSON feature from the bundled file
 interface GeoFeature {
   type: "Feature";
-  geometry: { type: "Point"; coordinates: [number, number] }; // [lon, lat]
-  properties: {
-    space_id: string;
-    section: string;
-    row_label: string;
-    space_type: string;
-  };
+  geometry: { type: "Point"; coordinates: [number, number] };
+  properties: { space_id: string; section: string; row_label: string; space_type: string };
 }
 
-// Merged: GeoJSON position + DB status
 interface MergedSpace extends GeoFeature {
   dbStatus: SpaceStatus | null;
+}
+
+// ── Tile pane filter — applied inside MapContainer via useMap() ───────────────
+// Dark mode: subtle navy tint so tiles blend with #0A0E1A app background
+// AMOLED: no filter — CartoDB Dark Matter already looks great on pure black
+// Aerial: no filter — satellite imagery should be unmodified
+function TilePaneFilter({ theme, aerial }: { theme: string; aerial: boolean }) {
+  const map = useMap();
+  useEffect(() => {
+    const pane = map.getPanes().tilePane as HTMLElement | undefined;
+    if (!pane) return;
+    if (!aerial && theme === "dark") {
+      // Shift dark tiles towards the app's #0A0E1A navy
+      pane.style.filter = "brightness(0.85) saturate(1.4) hue-rotate(195deg)";
+    } else {
+      pane.style.filter = "";
+    }
+  }, [theme, aerial, map]);
+  return null;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -100,35 +110,25 @@ function markerColor(status: SpaceStatus["status"]): string {
   return "#94a3b8";
 }
 
-function sectionColor(section: string): string {
-  // Subtle border tint per section so it's easy to orient on the map
-  if (section.includes("Barrier")) return "#60a5fa"; // blue
-  if (section.includes("Middle"))  return "#f59e0b"; // amber
-  if (section.includes("East"))    return "#a78bfa"; // purple
-  return "#94a3b8";
-}
-
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function LiveMap() {
-  const navigate  = useNavigate();
-  const c         = useColors();
+  const navigate   = useNavigate();
+  const c          = useColors();
+  const { theme }  = useTheme();
 
-  const [dbData,    setDbData]    = useState<SpacesResponse | null>(null);
-  const [loading,   setLoading]   = useState(true);
-  const [error,     setError]     = useState(false);
-  const [refreshing,setRefreshing]= useState(false);
-  const [aerialView,setAerialView]= useState(false);
+  const [dbData,     setDbData]     = useState<SpacesResponse | null>(null);
+  const [loading,    setLoading]    = useState(true);
+  const [error,      setError]      = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  const [aerialView, setAerialView] = useState(false);
 
-  // Build a lookup from space_id → status once the API responds
   const statusMap: Record<string, SpaceStatus> = {};
   dbData?.spaces.forEach((s) => { statusMap[s.space_id] = s; });
 
-  // Merge GeoJSON features with DB statuses
   const mergedSpaces: MergedSpace[] = (fullGeoJson as any).features.map(
     (f: GeoFeature) => ({ ...f, dbStatus: statusMap[f.properties.space_id] ?? null })
   );
 
-  // Fetch occupancy from the API
   const fetchSpaces = useCallback(async (isRefresh = false) => {
     if (isRefresh) setRefreshing(true);
     try {
@@ -146,7 +146,7 @@ export default function LiveMap() {
 
   useEffect(() => {
     fetchSpaces();
-    const t = setInterval(() => fetchSpaces(), REFRESH_MS);
+    const t = setInterval(() => fetchSpaces(), 5 * 60 * 1000);
     return () => clearInterval(t);
   }, [fetchSpaces]);
 
@@ -154,21 +154,17 @@ export default function LiveMap() {
   const total    = dbData?.total    ?? mergedSpaces.length;
   const vacant   = dbData?.vacant   ?? 0;
   const occupied = dbData?.occupied ?? 0;
-  const unknown  = dbData?.unknown  ?? total;
   const pct      = total > 0 ? vacant / total : 0;
-
   const statusColor = pct > 0.2 ? c.green : pct > 0 ? c.amber : c.red;
   const statusLabel = !dbData ? "Loading…" : pct > 0.2 ? "Available" : pct > 0 ? "Limited" : "Full";
   const firstName   = getUserFirstName();
 
-  // Section breakdown for the legend
-  const sectionCounts: Record<string, { total: number; vacant: number }> = {};
-  mergedSpaces.forEach(({ properties: p, dbStatus: d }) => {
-    const sec = p.section;
-    if (!sectionCounts[sec]) sectionCounts[sec] = { total: 0, vacant: 0 };
-    sectionCounts[sec].total++;
-    if (d?.status === "vacant") sectionCounts[sec].vacant++;
-  });
+  // Tile + pill colours per theme
+  const baseTile = aerialView ? TILES.aerial : (theme === "light" ? TILES.light : TILES.dark);
+  const isDark   = theme === "dark" || theme === "amoled";
+  const pillBg   = isDark ? "rgba(10,14,26,0.82)" : "rgba(255,255,255,0.92)";
+  const pillText = isDark ? "#e2e8f0" : "#1e293b";
+  const pillBorder = isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.1)";
 
   // ── Render ──────────────────────────────────────────────────────────────────
   return (
@@ -208,7 +204,7 @@ export default function LiveMap() {
           <div className="w-full h-full flex flex-col items-center justify-center gap-3" style={{ background: c.mapBg }}>
             <AlertCircle size={28} color="#ef4444" />
             <span style={{ color: c.textMuted }} className="text-[12px] text-center px-8">
-              Could not reach database.<br />Check DATABASE_URL is set on the container.
+              Could not reach database.
             </span>
             <button
               onClick={() => fetchSpaces(true)}
@@ -221,55 +217,50 @@ export default function LiveMap() {
         ) : (
           <>
             <MapContainer
-              center={CAR_PARK_CENTER}
-              zoom={17}
+              center={[51.882747, -8.534587]}
+              zoom={19}
               style={{ width: "100%", height: "100%" }}
               zoomControl
-              scrollWheelZoom={false}
+              scrollWheelZoom
+              maxZoom={21}
             >
+              {/* Navy tint for dark mode only */}
+              <TilePaneFilter theme={theme} aerial={aerialView} />
+
               <TileLayer
-                key={aerialView ? "aerial" : "street"}
-                url={aerialView ? TILES.aerial.url : TILES.street.url}
-                attribution={aerialView ? TILES.aerial.attribution : TILES.street.attribution}
-                maxZoom={20}
+                key={`${theme}-${aerialView}`}
+                url={baseTile.url}
+                attribution={baseTile.attribution}
+                maxZoom={21}
+                maxNativeZoom={19}
               />
 
               {mergedSpaces.map(({ properties: p, geometry: g, dbStatus: d }) => {
                 const [lon, lat] = g.coordinates;
                 const status = d?.status ?? "unknown";
                 const fill   = markerColor(status);
-                const stroke = sectionColor(p.section);
                 return (
                   <CircleMarker
                     key={p.space_id}
                     center={[lat, lon]}
                     radius={5}
                     pathOptions={{
-                      color: stroke,
-                      weight: 1.2,
+                      color: "rgba(255,255,255,0.3)",
+                      weight: 1,
                       fillColor: fill,
-                      fillOpacity: 0.9,
+                      fillOpacity: 0.92,
                     }}
                   >
                     <Popup closeButton={false}>
                       <div style={{ minWidth: 120 }}>
                         <p className="font-semibold text-sm">{p.space_id}</p>
                         <p className="text-[10px] text-gray-500 mb-1">{p.section}</p>
-                        <p
-                          className="text-xs font-medium capitalize"
-                          style={{ color: fill }}
-                        >
-                          {status}
-                        </p>
+                        <p className="text-xs font-medium capitalize" style={{ color: fill }}>{status}</p>
                         {d?.confidence != null && (
-                          <p className="text-[10px] text-gray-400">
-                            {Math.round(d.confidence * 100)}% confidence
-                          </p>
+                          <p className="text-[10px] text-gray-400">{Math.round(d.confidence * 100)}% confidence</p>
                         )}
                         {d?.observed_at && (
-                          <p className="text-[10px] text-gray-400">
-                            {formatLastSeen(d.observed_at)} · {d.data_source}
-                          </p>
+                          <p className="text-[10px] text-gray-400">{formatLastSeen(d.observed_at)} · {d.data_source}</p>
                         )}
                       </div>
                     </Popup>
@@ -278,22 +269,17 @@ export default function LiveMap() {
               })}
             </MapContainer>
 
-            {/* Aerial toggle */}
+            {/* Aerial / Street toggle */}
             <button
               onClick={() => setAerialView((v) => !v)}
               className="absolute top-2 right-2 z-[1000] flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold shadow-md transition-all active:scale-95"
-              style={{
-                background: aerialView ? "rgba(20,20,35,0.85)" : "rgba(255,255,255,0.92)",
-                color: aerialView ? "#e2e8f0" : "#1e293b",
-                border: `1px solid ${aerialView ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.12)"}`,
-                backdropFilter: "blur(6px)",
-              }}
+              style={{ background: pillBg, color: pillText, border: `1px solid ${pillBorder}`, backdropFilter: "blur(6px)" }}
             >
               {aerialView ? <MapIcon size={11} /> : <Satellite size={11} />}
               {aerialView ? "Street" : "Aerial"}
             </button>
 
-            {/* Status legend */}
+            {/* Legend */}
             <div className="absolute top-2 left-2 z-[1000] flex flex-col gap-1">
               {[
                 { col: "#22c55e", l: "Vacant" },
@@ -303,10 +289,10 @@ export default function LiveMap() {
                 <div
                   key={i.l}
                   className="flex items-center gap-1.5 px-2 py-0.5 rounded-full shadow-sm"
-                  style={{ background: "rgba(255,255,255,0.9)", backdropFilter: "blur(4px)" }}
+                  style={{ background: pillBg, backdropFilter: "blur(4px)" }}
                 >
                   <div className="w-2 h-2 rounded-full" style={{ background: i.col }} />
-                  <span className="text-[9px] font-medium text-gray-700">{i.l}</span>
+                  <span className="text-[9px] font-medium" style={{ color: pillText }}>{i.l}</span>
                 </div>
               ))}
             </div>
@@ -314,9 +300,9 @@ export default function LiveMap() {
             {/* Last updated */}
             <div
               className="absolute bottom-2 left-2 z-[1000] px-2 py-0.5 rounded-full shadow-sm"
-              style={{ background: "rgba(255,255,255,0.9)", backdropFilter: "blur(4px)" }}
+              style={{ background: pillBg, backdropFilter: "blur(4px)" }}
             >
-              <span className="text-[9px] text-gray-600">
+              <span className="text-[9px]" style={{ color: pillText }}>
                 Updated: {formatLastSeen(dbData?.last_updated)}
               </span>
             </div>
@@ -332,16 +318,13 @@ export default function LiveMap() {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ background: statusColor }} />
-            <span style={{ color: c.textSecondary }} className="text-[13px] font-medium">
-              {statusLabel}
-            </span>
+            <span style={{ color: c.textSecondary }} className="text-[13px] font-medium">{statusLabel}</span>
           </div>
           <span style={{ color: c.textFaint }} className="text-[10px]">
             {dbData?.data_source === "real" ? "📡 Drone scan" : "⚡ Simulated"}
           </span>
         </div>
 
-        {/* Overall counts */}
         <div className="flex justify-between mb-3">
           {[
             { n: total,    l: "Total",    col: c.text    },
@@ -355,37 +338,14 @@ export default function LiveMap() {
           ))}
         </div>
 
-        {/* Occupancy bar */}
         {total > 0 && (
-          <div className="rounded-full overflow-hidden mb-3" style={{ height: 4, background: "rgba(148,163,184,0.2)" }}>
+          <div className="rounded-full overflow-hidden" style={{ height: 4, background: "rgba(148,163,184,0.2)" }}>
             <div
               className="h-full rounded-full transition-all duration-700"
               style={{ width: `${(occupied / total) * 100}%`, background: statusColor }}
             />
           </div>
         )}
-
-        {/* Per-section breakdown */}
-        <div className="space-y-1.5 pt-2" style={{ borderTop: `1px solid ${c.cardBorder}` }}>
-          {Object.entries(sectionCounts).map(([sec, counts]) => {
-            const pctVacant = counts.total > 0 ? counts.vacant / counts.total : 0;
-            return (
-              <div key={sec} className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: sectionColor(sec) }} />
-                <span style={{ color: c.textSecondary }} className="text-[11px] flex-1 truncate">{sec}</span>
-                <span style={{ color: c.textFaint }} className="text-[10px]">
-                  {counts.vacant}/{counts.total} free
-                </span>
-                <div className="w-16 rounded-full overflow-hidden" style={{ height: 3, background: "rgba(148,163,184,0.2)" }}>
-                  <div
-                    className="h-full rounded-full"
-                    style={{ width: `${pctVacant * 100}%`, background: sectionColor(sec) }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
       </div>
 
       {/* Refresh */}
