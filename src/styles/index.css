@@ -1,11 +1,25 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
 body.drawer-open .leaflet-pane,
 body.drawer-open .leaflet-top,
 body.drawer-open .leaflet-bottom,
 body.drawer-open .leaflet-control,
 body.drawer-open .leaflet-container {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Leaflet sets z-index via inline styles on individual panes —
+   these override inline styles via !important on the specific pane classes */
+body.drawer-open .leaflet-map-pane,
+body.drawer-open .leaflet-tile-pane,
+body.drawer-open .leaflet-overlay-pane,
+body.drawer-open .leaflet-shadow-pane,
+body.drawer-open .leaflet-marker-pane,
+body.drawer-open .leaflet-tooltip-pane,
+body.drawer-open .leaflet-popup-pane {
   z-index: 0 !important;
   pointer-events: none !important;
 }

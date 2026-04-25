@@ -11,17 +11,14 @@ import fullGeoJson from "../../imports/full_carpark.json";
 
 // ── Tile definitions ──────────────────────────────────────────────────────────
 const TILES = {
-  // Light — standard colourful OSM
   light: {
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   },
-  // Dark / AMOLED — CartoDB Dark Matter (no extra filter)
   dark: {
     url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
   },
-  // Aerial — Esri World Imagery
   aerial: {
     url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     attribution: "Esri, DigitalGlobe, GeoEye, USDA FSA, USGS, AEX, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
@@ -57,17 +54,13 @@ interface MergedSpace extends GeoFeature {
   dbStatus: SpaceStatus | null;
 }
 
-// ── Tile pane filter — applied inside MapContainer via useMap() ───────────────
-// Dark mode: subtle navy tint so tiles blend with #0A0E1A app background
-// AMOLED: no filter — CartoDB Dark Matter already looks great on pure black
-// Aerial: no filter — satellite imagery should be unmodified
+// ── Tile pane filter ──────────────────────────────────────────────────────────
 function TilePaneFilter({ theme, aerial }: { theme: string; aerial: boolean }) {
   const map = useMap();
   useEffect(() => {
     const pane = map.getPanes().tilePane as HTMLElement | undefined;
     if (!pane) return;
     if (!aerial && theme === "dark") {
-      // Shift dark tiles towards the app's #0A0E1A navy
       pane.style.filter = "brightness(0.85) saturate(1.4) hue-rotate(195deg)";
     } else {
       pane.style.filter = "";
@@ -159,11 +152,10 @@ export default function LiveMap() {
   const statusLabel = !dbData ? "Loading…" : pct > 0.2 ? "Available" : pct > 0 ? "Limited" : "Full";
   const firstName   = getUserFirstName();
 
-  // Tile + pill colours per theme
-  const baseTile = aerialView ? TILES.aerial : (theme === "light" ? TILES.light : TILES.dark);
-  const isDark   = theme === "dark" || theme === "amoled";
-  const pillBg   = isDark ? "rgba(10,14,26,0.82)" : "rgba(255,255,255,0.92)";
-  const pillText = isDark ? "#e2e8f0" : "#1e293b";
+  const baseTile   = aerialView ? TILES.aerial : (theme === "light" ? TILES.light : TILES.dark);
+  const isDark     = theme === "dark" || theme === "amoled";
+  const pillBg     = isDark ? "rgba(10,14,26,0.82)" : "rgba(255,255,255,0.92)";
+  const pillText   = isDark ? "#e2e8f0" : "#1e293b";
   const pillBorder = isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.1)";
 
   // ── Render ──────────────────────────────────────────────────────────────────
@@ -190,10 +182,23 @@ export default function LiveMap() {
         </button>
       </div>
 
-      {/* Map */}
+      {/*
+        ── Map container ──────────────────────────────────────────────────────
+        KEY FIX: position:relative + zIndex:0 + isolation:isolate together
+        create a new stacking context that fully contains Leaflet's internal
+        pane z-indices. Without this, Leaflet's tile/marker panes escape to
+        the top of the page stacking context and render above the sidebar
+        overlay on mobile browsers.
+      */}
       <div
         className="mx-4 rounded-2xl overflow-hidden relative flex-shrink-0"
-        style={{ height: 360, border: `1px solid ${c.accentBorder}` }}
+        style={{
+          height: 360,
+          border: `1px solid ${c.accentBorder}`,
+          position: "relative",
+          zIndex: 0,
+          isolation: "isolate",
+        }}
       >
         {loading ? (
           <div className="w-full h-full flex flex-col items-center justify-center gap-3" style={{ background: c.mapBg }}>
@@ -224,7 +229,6 @@ export default function LiveMap() {
               scrollWheelZoom
               maxZoom={21}
             >
-              {/* Navy tint for dark mode only */}
               <TilePaneFilter theme={theme} aerial={aerialView} />
 
               <TileLayer
