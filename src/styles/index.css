@@ -1,3 +1,11 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+body.drawer-open .leaflet-pane,
+body.drawer-open .leaflet-top,
+body.drawer-open .leaflet-bottom,
+body.drawer-open .leaflet-control,
+body.drawer-open .leaflet-container {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
