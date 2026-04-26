@@ -4,8 +4,7 @@ import {
   Cloud, Sun, CloudRain, CloudSnow, CloudLightning,
   Wind, Droplets, Trophy,
 } from "lucide-react";
-import { useState, useEffect, createContext } from "react";
-import { createPortal } from "react-dom";
+import { useState, useRef, useLayoutEffect, createContext } from "react";
 
 export const MobileDrawerContext = createContext(false);
 import { AreaChart, Area, XAxis, ResponsiveContainer, Tooltip } from "recharts";
@@ -266,17 +265,23 @@ function SidebarContent({ onNavigate }: { onNavigate: () => void }) {
 export default function Layout() {
   const c = useColors();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
-  useEffect(() => {
+  // useLayoutEffect runs synchronously before the browser paints — this
+  // guarantees showModal() is called before the first frame that shows the
+  // drawer, so the top-layer dialog is always in front of canvas GPU layers.
+  useLayoutEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
     if (mobileOpen) {
-      document.body.classList.add("drawer-open");
+      if (!dialog.open) dialog.showModal();
       document.body.style.overflow = "hidden";
     } else {
-      document.body.classList.remove("drawer-open");
+      if (dialog.open) dialog.close();
       document.body.style.overflow = "";
     }
     return () => {
-      document.body.classList.remove("drawer-open");
+      if (dialog.open) dialog.close();
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
@@ -297,7 +302,7 @@ export default function Layout() {
         <SidebarContent onNavigate={() => {}} />
       </aside>
 
-      {/* Mobile top bar — z-[99999] ensures it's always on top */}
+      {/* Mobile top bar */}
       <div
         className="lg:hidden fixed top-0 left-0 right-0 z-[99999] flex items-center justify-between px-4 py-3 border-b"
         style={{
@@ -310,39 +315,50 @@ export default function Layout() {
           Sky<span style={{ color: "#2D7EFF" }}>Spot</span>
         </h1>
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen(true)}
           className="p-1.5 rounded-lg"
           style={{ color: c.text }}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          <Menu size={22} />
         </button>
       </div>
 
-      {/* Mobile drawer — rendered as a portal into document.body so it sits
-          above Leaflet's GPU-composited canvas layer regardless of z-index */}
-      {mobileOpen && createPortal(
-        <>
-          {/* Full-screen backdrop */}
-          <div
-            className="fixed inset-0 bg-black/60"
-            style={{ zIndex: 99997 }}
-            onClick={() => setMobileOpen(false)}
-          />
-          {/* Drawer panel — transform:translateZ(0) forces a GPU layer above canvas */}
-          <div
-            className="fixed top-[56px] left-0 bottom-0 w-[260px] border-r overflow-y-auto"
-            style={{
-              zIndex: 99998,
-              background: c.bg,
-              borderColor: c.cardBorder,
-              transform: "translateZ(0)",
-            }}
-          >
-            <SidebarContent onNavigate={() => setMobileOpen(false)} />
-          </div>
-        </>,
-        document.body
-      )}
+      {/*
+        Mobile drawer as a native <dialog>.
+        dialog.showModal() places the element in the browser's top layer —
+        a rendering surface that sits above ALL page content including GPU-
+        composited canvas layers. No z-index value can beat the top layer.
+        The ::backdrop pseudo-element provides the dark overlay automatically.
+      */}
+      <dialog
+        ref={dialogRef}
+        id="mobile-drawer"
+        className="lg:hidden"
+        style={{ background: c.bg, borderRight: `1px solid ${c.cardBorder}` }}
+        onClose={() => setMobileOpen(false)}
+        onClick={(e) => {
+          // Close when clicking the backdrop (outside the dialog panel)
+          const rect = dialogRef.current?.getBoundingClientRect();
+          if (rect && (e.clientX < rect.left || e.clientX > rect.right ||
+              e.clientY < rect.top || e.clientY > rect.bottom)) {
+            setMobileOpen(false);
+          }
+        }}
+      >
+        {/* Mini top bar inside the dialog so the X button is reachable */}
+        <div
+          className="flex items-center justify-between px-4 py-3 border-b shrink-0"
+          style={{ background: c.navBg, borderColor: c.navBorder, backdropFilter: "blur(20px)" }}
+        >
+          <h1 className="tracking-tight" style={{ fontSize: 20, fontWeight: 700, color: c.text }}>
+            Sky<span style={{ color: "#2D7EFF" }}>Spot</span>
+          </h1>
+          <button onClick={() => setMobileOpen(false)} className="p-1.5 rounded-lg" style={{ color: c.text }}>
+            <X size={22} />
+          </button>
+        </div>
+        <SidebarContent onNavigate={() => setMobileOpen(false)} />
+      </dialog>
 
       <main
         className="flex-1 min-h-screen overflow-y-auto pt-[56px] lg:pt-0"
