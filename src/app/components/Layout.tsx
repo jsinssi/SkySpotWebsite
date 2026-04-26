@@ -5,6 +5,7 @@ import {
   Wind, Droplets, Trophy,
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { AreaChart, Area, XAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { useColors } from "./ThemeContext";
 
@@ -264,11 +265,6 @@ export default function Layout() {
   const c = useColors();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Leaflet internally sets z-index on its own pane divs which escape normal
-  // stacking contexts on mobile browsers, rendering above everything.
-  // Fix: when the drawer opens, add .drawer-open to <body>.
-  // The matching CSS in index.css sets the leaflet-pane containers to z-index:0
-  // and disables pointer-events on the map, pulling it behind the overlay.
   useEffect(() => {
     if (mobileOpen) {
       document.body.classList.add("drawer-open");
@@ -299,9 +295,9 @@ export default function Layout() {
         <SidebarContent onNavigate={() => {}} />
       </aside>
 
-      {/* Mobile top bar — z-[2000] above Leaflet max (~650) */}
+      {/* Mobile top bar — z-[99999] ensures it's always on top */}
       <div
-        className="lg:hidden fixed top-0 left-0 right-0 z-[2000] flex items-center justify-between px-4 py-3 border-b"
+        className="lg:hidden fixed top-0 left-0 right-0 z-[99999] flex items-center justify-between px-4 py-3 border-b"
         style={{
           background: c.navBg,
           backdropFilter: "blur(20px)",
@@ -320,31 +316,36 @@ export default function Layout() {
         </button>
       </div>
 
-      {/* Mobile drawer — two separate fixed elements so Leaflet can't punch through */}
-      {mobileOpen && (
+      {/* Mobile drawer — rendered as a portal into document.body so it sits
+          above Leaflet's GPU-composited canvas layer regardless of z-index */}
+      {mobileOpen && createPortal(
         <>
-          {/* Full-screen backdrop at z-[1998] — clicks outside close the drawer */}
+          {/* Full-screen backdrop */}
           <div
-            className="lg:hidden fixed inset-0 z-[1998] bg-black/60"
+            className="fixed inset-0 bg-black/60"
+            style={{ zIndex: 99997 }}
             onClick={() => setMobileOpen(false)}
           />
-          {/* Drawer panel at z-[1999] — sits on top of backdrop */}
+          {/* Drawer panel — transform:translateZ(0) forces a GPU layer above canvas */}
           <div
-            className="lg:hidden fixed top-[56px] left-0 bottom-0 w-[260px] z-[1999] border-r overflow-y-auto"
-            style={{ background: c.bg, borderColor: c.cardBorder }}
+            className="fixed top-[56px] left-0 bottom-0 w-[260px] border-r overflow-y-auto"
+            style={{
+              zIndex: 99998,
+              background: c.bg,
+              borderColor: c.cardBorder,
+              transform: "translateZ(0)",
+            }}
           >
             <SidebarContent onNavigate={() => setMobileOpen(false)} />
           </div>
-        </>
+        </>,
+        document.body
       )}
 
-      {/* Main content
-          isolation:isolate contains Leaflet's internal z-index tree so it
-          cannot escape above the overlay.
-          pointerEvents:none while drawer is open prevents click-through. */}
+      {/* Main content — no isolation:isolate so fixed drawer can paint above */}
       <main
         className="flex-1 min-h-screen overflow-y-auto pt-[56px] lg:pt-0"
-        style={{ isolation: "isolate", pointerEvents: mobileOpen ? "none" : "auto" }}
+        style={{ pointerEvents: mobileOpen ? "none" : "auto" }}
       >
         <div className="w-full max-w-[860px] mx-auto h-full min-h-[calc(100vh-56px)] lg:min-h-screen">
           <Outlet />

@@ -191,13 +191,12 @@ export default function LiveMap() {
         overlay on mobile browsers.
       */}
       <div
-        className="mx-4 rounded-2xl overflow-hidden relative flex-shrink-0"
+        className="mx-4 rounded-2xl overflow-hidden relative flex-shrink-0 isolate"
         style={{
           height: 360,
           border: `1px solid ${c.accentBorder}`,
           position: "relative",
           zIndex: 0,
-          isolation: "isolate",
         }}
       >
         {loading ? (
