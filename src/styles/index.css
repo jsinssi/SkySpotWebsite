@@ -2,40 +2,15 @@
 @import './tailwind.css';
 @import './theme.css';
 
-/* ── Leaflet z-index fix ────────────────────────────────────────────────────
-   On mobile browsers (WebKit/Blink), Leaflet sets z-index via inline styles
-   on its pane divs, and its canvas/svg elements can escape normal stacking
-   contexts, rendering above fixed overlays like the sidebar drawer.
-
-   When the drawer opens, Layout.tsx adds .drawer-open to <body>.
-   These rules force every Leaflet layer to z-index:0 and disable pointer
-   events on the map so the drawer and backdrop are fully interactive.
+/* ── Mobile drawer: hide Leaflet map when drawer is open ────────────────────
+   On mobile browsers, Leaflet's canvas is promoted to a GPU compositing
+   layer that paints above position:fixed overlays regardless of z-index.
+   display:none is the only reliable way to remove it from compositing.
+   Layout.tsx adds .drawer-open to <body> when the mobile drawer opens.
+   The portal-based drawer and backdrop live in <body> (outside <main>),
+   so they are unaffected by this rule.
    ────────────────────────────────────────────────────────────────────────── */
 
 body.drawer-open .leaflet-container {
-  z-index: 0 !important;
-  position: relative !important;
-}
-
-body.drawer-open .leaflet-pane,
-body.drawer-open .leaflet-map-pane,
-body.drawer-open .leaflet-tile-pane,
-body.drawer-open .leaflet-overlay-pane,
-body.drawer-open .leaflet-shadow-pane,
-body.drawer-open .leaflet-marker-pane,
-body.drawer-open .leaflet-tooltip-pane,
-body.drawer-open .leaflet-popup-pane,
-body.drawer-open .leaflet-top,
-body.drawer-open .leaflet-bottom,
-body.drawer-open .leaflet-control {
-  z-index: 0 !important;
-  pointer-events: none !important;
-}
-
-/* Target the actual canvas and SVG elements Leaflet renders into —
-   these are what escape stacking context on mobile browsers */
-body.drawer-open .leaflet-container canvas,
-body.drawer-open .leaflet-container svg {
-  z-index: 0 !important;
-  position: relative !important;
+  display: none !important;
 }
