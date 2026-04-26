@@ -4,8 +4,10 @@ import {
   Cloud, Sun, CloudRain, CloudSnow, CloudLightning,
   Wind, Droplets, Trophy,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import { createPortal } from "react-dom";
+
+export const MobileDrawerContext = createContext(false);
 import { AreaChart, Area, XAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { useColors } from "./ThemeContext";
 
@@ -342,13 +344,14 @@ export default function Layout() {
         document.body
       )}
 
-      {/* Main content — no isolation:isolate so fixed drawer can paint above */}
       <main
         className="flex-1 min-h-screen overflow-y-auto pt-[56px] lg:pt-0"
         style={{ pointerEvents: mobileOpen ? "none" : "auto" }}
       >
         <div className="w-full max-w-[860px] mx-auto h-full min-h-[calc(100vh-56px)] lg:min-h-screen">
-          <Outlet />
+          <MobileDrawerContext.Provider value={mobileOpen}>
+            <Outlet />
+          </MobileDrawerContext.Provider>
         </div>
       </main>
     </div>

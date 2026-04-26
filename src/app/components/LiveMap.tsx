@@ -1,10 +1,11 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
 import { useNavigate } from "react-router";
 import {
   Bell, RefreshCw, ChevronRight, Satellite,
   Map as MapIcon, Loader2, AlertCircle,
 } from "lucide-react";
 import { useColors, useTheme } from "./ThemeContext";
+import { MobileDrawerContext } from "./Layout";
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import fullGeoJson from "../../imports/full_carpark.json";
@@ -108,6 +109,7 @@ export default function LiveMap() {
   const navigate   = useNavigate();
   const c          = useColors();
   const { theme }  = useTheme();
+  const drawerOpen = useContext(MobileDrawerContext);
 
   const [dbData,     setDbData]     = useState<SpacesResponse | null>(null);
   const [loading,    setLoading]    = useState(true);
@@ -197,6 +199,7 @@ export default function LiveMap() {
           border: `1px solid ${c.accentBorder}`,
           position: "relative",
           zIndex: 0,
+          display: drawerOpen ? "none" : undefined,
         }}
       >
         {loading ? (
