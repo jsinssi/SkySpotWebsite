@@ -346,7 +346,10 @@ export default function Layout() {
 
       <main
         className="flex-1 min-h-screen overflow-y-auto pt-[56px] lg:pt-0"
-        style={{ pointerEvents: mobileOpen ? "none" : "auto" }}
+        style={{
+          pointerEvents: mobileOpen ? "none" : "auto",
+          display: mobileOpen ? "none" : undefined,
+        }}
       >
         <div className="w-full max-w-[860px] mx-auto h-full min-h-[calc(100vh-56px)] lg:min-h-screen">
           <MobileDrawerContext.Provider value={mobileOpen}>
