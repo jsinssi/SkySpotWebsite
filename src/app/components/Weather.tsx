@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
 import {
-  ArrowLeft, Loader2, Droplets, Wind, Thermometer,
+  Loader2, Droplets, Wind, Thermometer,
   Cloud, CloudRain, Sun, CloudSnow, Zap, Eye,
 } from "lucide-react";
 import { useColors } from "./ThemeContext";
@@ -140,7 +139,6 @@ async function fetchWeatherData(): Promise<{ current: CurrentWeather; forecast: 
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function Weather() {
-  const navigate = useNavigate();
   const c = useColors();
 
   const [current,  setCurrent]  = useState<CurrentWeather | null>(null);
@@ -180,12 +178,6 @@ export default function Weather() {
 
   return (
     <div className="flex flex-col px-4 lg:px-8 pt-4 lg:pt-8 pb-4">
-
-      {/* Back */}
-      <button onClick={() => navigate("/app")} className="flex items-center gap-2 mb-4">
-        <ArrowLeft size={18} color={c.text} />
-        <span style={{ color: c.textMuted }} className="text-[13px]">Back to Map</span>
-      </button>
 
       {/* Loading */}
       {loading && (
