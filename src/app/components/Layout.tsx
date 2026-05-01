@@ -1,6 +1,7 @@
 import { Outlet, useNavigate, useLocation } from "react-router";
+import { useEffect, useRef, useState } from "react";
 import {
-  Map, BarChart3, Bell, User, Sparkles, Cloud, TrendingUp,
+  Map, BarChart3, Bell, User, Sparkles, Cloud, TrendingUp, Menu, X,
 } from "lucide-react";
 import { useColors } from "./ThemeContext";
 
@@ -66,6 +67,18 @@ export default function Layout() {
   const c = useColors();
   const navigate = useNavigate();
   const location = useLocation();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (drawerOpen) {
+      dialog.showModal();
+    } else {
+      dialog.close();
+    }
+  }, [drawerOpen]);
 
   return (
     <div
@@ -95,39 +108,55 @@ export default function Layout() {
         <h1 className="tracking-tight" style={{ fontSize: 20, fontWeight: 700, color: c.text }}>
           Sky<span style={{ color: "#2D7EFF" }}>Spot</span>
         </h1>
+        <button
+          onClick={() => setDrawerOpen(true)}
+          className="ml-auto flex items-center justify-center rounded-lg p-1.5"
+          style={{ color: c.text }}
+          aria-label="Open navigation"
+        >
+          <Menu size={22} />
+        </button>
       </div>
 
-      {/* Mobile bottom nav bar — sits below the map, no overlap possible */}
-      <nav
-        className="lg:hidden fixed bottom-0 left-0 right-0 z-[999] flex items-center justify-around border-t px-1"
-        style={{
-          background: c.navBg,
-          borderColor: c.navBorder,
-          backdropFilter: "blur(20px)",
-          paddingBottom: "env(safe-area-inset-bottom, 0px)",
-          height: 60,
-        }}
+      {/* Mobile side drawer */}
+      <dialog
+        ref={dialogRef}
+        onClose={() => setDrawerOpen(false)}
+        onClick={(e) => { if (e.target === dialogRef.current) setDrawerOpen(false); }}
+        className="lg:hidden fixed inset-0 m-0 p-0 w-full h-full max-w-full max-h-full bg-transparent z-[100000]"
+        style={{ outline: "none" }}
       >
-        {navItems.map((item) => {
-          const active =
-            location.pathname === item.path ||
-            (item.path !== "/app" && location.pathname.startsWith(item.path));
-          return (
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "rgba(0,0,0,0.45)" }}
+          onClick={() => setDrawerOpen(false)}
+        />
+        {/* Panel */}
+        <div
+          className="absolute top-0 right-0 h-full overflow-y-auto shadow-2xl"
+          style={{
+            width: "min(80vw, 300px)",
+            background: c.dark ? "rgba(18,18,22,0.98)" : "#fff",
+            borderLeft: `1px solid ${c.cardBorder}`,
+          }}
+        >
+          <div className="flex items-center justify-end px-4 py-3 border-b" style={{ borderColor: c.navBorder }}>
             <button
-              key={item.path}
-              onClick={() => navigate(item.path)}
-              className="flex flex-col items-center justify-center gap-0.5 flex-1 h-full"
-              style={{ color: active ? "#2D7EFF" : c.navInactive }}
+              onClick={() => setDrawerOpen(false)}
+              className="flex items-center justify-center rounded-lg p-1.5"
+              style={{ color: c.text }}
+              aria-label="Close navigation"
             >
-              <item.icon size={20} />
-              <span style={{ fontSize: 10, fontWeight: active ? 600 : 400 }}>{item.label}</span>
+              <X size={22} />
             </button>
-          );
-        })}
-      </nav>
+          </div>
+          <SidebarContent onNavigate={() => setDrawerOpen(false)} />
+        </div>
+      </dialog>
 
       <main
-        className="flex-1 min-h-screen overflow-y-auto pt-[56px] pb-[60px] lg:pt-0 lg:pb-0"
+        className="flex-1 min-h-screen overflow-y-auto pt-[56px] lg:pt-0"
       >
         <div className="w-full max-w-[860px] mx-auto h-full min-h-[calc(100vh-56px)] lg:min-h-screen">
           <Outlet />

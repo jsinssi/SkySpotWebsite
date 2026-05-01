@@ -101,6 +101,7 @@ class WeatherCurrent(BaseModel):
     feels_like_c: Optional[float] = None
     humidity_pct: Optional[float] = None
     wind_speed_ms: Optional[float] = None
+    wind_dir_deg: Optional[float] = None
     precipitation_mm: Optional[float] = None
     weather_code: Optional[int] = None
     description: Optional[str] = None
@@ -116,6 +117,17 @@ class WeatherForecastDay(BaseModel):
     wind_speed_max_ms: Optional[float] = None
     weather_code: Optional[int] = None
     description: Optional[str] = None
+    sunrise: Optional[str] = None
+    sunset: Optional[str] = None
+
+
+class WeatherHourlySlot(BaseModel):
+    recorded_at: datetime
+    temperature_c: Optional[float] = None
+    weather_code: Optional[int] = None
+    description: Optional[str] = None
+    precipitation_mm: Optional[float] = None
+    wind_speed_ms: Optional[float] = None
 
 
 class HealthResponse(BaseModel):
@@ -256,7 +268,7 @@ async def get_weather_current():
         async with async_session() as session:
             row = (await session.execute(text("""
                 SELECT recorded_at, temperature_c, feels_like_c, humidity_pct,
-                       wind_speed_ms, precipitation_mm, weather_code, description, is_forecast
+                       wind_speed_ms, wind_dir_deg, precipitation_mm, weather_code, description, is_forecast
                 FROM weather_hourly
                 WHERE recorded_at BETWEEN now() - interval '3 hours' AND now() + interval '2 hours'
                 ORDER BY ABS(EXTRACT(EPOCH FROM (recorded_at - now())))
@@ -279,7 +291,8 @@ async def get_weather_forecast():
             rows = (await session.execute(text("""
                 SELECT forecast_date::text, temp_max_c, temp_min_c,
                        precipitation_sum_mm, precipitation_prob_max,
-                       wind_speed_max_ms, weather_code, description
+                       wind_speed_max_ms, weather_code, description,
+                       sunrise::text, sunset::text
                 FROM weather_daily
                 WHERE forecast_date >= CURRENT_DATE
                 ORDER BY forecast_date LIMIT 7
@@ -287,6 +300,25 @@ async def get_weather_forecast():
         return [WeatherForecastDay(**r._mapping) for r in rows]
     except Exception as exc:
         logger.exception("Failed to fetch forecast")
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/api/weather/hourly", response_model=List[WeatherHourlySlot])
+async def get_weather_hourly():
+    try:
+        async with async_session() as session:
+            rows = (await session.execute(text("""
+                SELECT recorded_at, temperature_c, weather_code, description,
+                       precipitation_mm, wind_speed_ms
+                FROM weather_hourly
+                WHERE recorded_at >= now() - interval '1 hour'
+                  AND recorded_at <= now() + interval '26 hours'
+                ORDER BY recorded_at
+                LIMIT 28
+            """))).fetchall()
+        return [WeatherHourlySlot(**r._mapping) for r in rows]
+    except Exception as exc:
+        logger.exception("Failed to fetch hourly weather")
         raise HTTPException(status_code=500, detail=str(exc))
 
 
