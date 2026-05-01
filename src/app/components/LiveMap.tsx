@@ -1,11 +1,10 @@
-import { useState, useEffect, useCallback, useContext } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router";
 import {
-  Bell, RefreshCw, ChevronRight, Satellite,
+  Bell, RefreshCw, Satellite,
   Map as MapIcon, Loader2, AlertCircle,
 } from "lucide-react";
 import { useColors, useTheme } from "./ThemeContext";
-import { MobileDrawerContext } from "./Layout";
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import fullGeoJson from "../../imports/full_carpark.json";
@@ -106,10 +105,9 @@ function markerColor(status: SpaceStatus["status"]): string {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function LiveMap() {
-  const navigate   = useNavigate();
-  const c          = useColors();
-  const { theme }  = useTheme();
-  const drawerOpen = useContext(MobileDrawerContext);
+  const navigate  = useNavigate();
+  const c         = useColors();
+  const { theme } = useTheme();
 
   const [dbData,     setDbData]     = useState<SpacesResponse | null>(null);
   const [loading,    setLoading]    = useState(true);
@@ -199,7 +197,6 @@ export default function LiveMap() {
           border: `1px solid ${c.accentBorder}`,
           position: "relative",
           zIndex: 0,
-          display: drawerOpen ? "none" : undefined,
         }}
       >
         {loading ? (
@@ -369,26 +366,7 @@ export default function LiveMap() {
         </button>
       </div>
 
-      {/* Quick links */}
-      <div className="mx-4 mb-6 space-y-2">
-        {[
-          { label: "Weather Impact", path: "/app/weather", emoji: "☁️" },
-          { label: "Insights & History", path: "/app/insights", emoji: "📊" },
-        ].map((link) => (
-          <button
-            key={link.path}
-            onClick={() => navigate(link.path)}
-            className="w-full flex items-center justify-between p-3 rounded-xl transition-all active:scale-[0.98]"
-            style={{ background: c.card, border: `1px solid ${c.cardBorder}` }}
-          >
-            <div className="flex items-center gap-2">
-              <span>{link.emoji}</span>
-              <span style={{ color: c.textSecondary }} className="text-[13px]">{link.label}</span>
-            </div>
-            <ChevronRight size={16} color={c.textFaint} />
-          </button>
-        ))}
-      </div>
+      <div className="mb-6" />
     </div>
   );
 }

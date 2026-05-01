@@ -1,5 +1,4 @@
-import { ArrowLeft, Trophy, Clock, TrendingUp } from "lucide-react";
-import { useNavigate } from "react-router";
+import { Trophy, Clock, TrendingUp } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { useColors } from "./ThemeContext";
 
@@ -12,16 +11,10 @@ const chartData = [
 ];
 
 export default function Insights() {
-  const navigate = useNavigate();
   const c = useColors();
 
   return (
     <div className="flex flex-col px-4 lg:px-8 pt-4 lg:pt-8 pb-4">
-      <button onClick={() => navigate("/app")} className="flex items-center gap-2 mb-4">
-        <ArrowLeft size={18} color={c.text} />
-        <span style={{ color: c.textMuted }} className="text-[13px]">Back to Map</span>
-      </button>
-
       <h2 style={{ color: c.text, fontSize: 20, fontWeight: 700 }} className="mb-4">Insights & History</h2>
 
       <div className="p-5 rounded-2xl mb-4" style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.15)" }}>
