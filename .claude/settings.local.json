@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"C:/Users/butle_8s4t3n1/Downloads/opendyslexic-0.92/OpenDyslexic-Regular.otf\" \"C:/Users/butle_8s4t3n1/Downloads/SkySpotWebsite/public/fonts/\")",
+      "Bash(cp \"C:/Users/butle_8s4t3n1/Downloads/opendyslexic-0.92/OpenDyslexic-Bold.otf\" \"C:/Users/butle_8s4t3n1/Downloads/SkySpotWebsite/public/fonts/\")",
+      "Bash(cp \"C:/Users/butle_8s4t3n1/Downloads/opendyslexic-0.92/OpenDyslexic-Italic.otf\" \"C:/Users/butle_8s4t3n1/Downloads/SkySpotWebsite/public/fonts/\")",
+      "Bash(cp \"C:/Users/butle_8s4t3n1/Downloads/opendyslexic-0.92/OpenDyslexic-BoldItalic.otf\" \"C:/Users/butle_8s4t3n1/Downloads/SkySpotWebsite/public/fonts/\")"
+    ]
+  }
+}

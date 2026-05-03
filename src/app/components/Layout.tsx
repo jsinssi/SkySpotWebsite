@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   Map, BarChart3, Bell, User, Sparkles, Cloud, TrendingUp, Menu, X,
 } from "lucide-react";
-import { useColors } from "./ThemeContext";
+import { useColors, useAccessibility } from "./ThemeContext";
 
 const navItems = [
   { path: "/app",           icon: Map,        label: "Map"      },
@@ -65,6 +65,7 @@ function SidebarContent({ onNavigate }: { onNavigate: () => void }) {
 
 export default function Layout() {
   const c = useColors();
+  const { textSize, font, colorFilter } = useAccessibility();
   const navigate = useNavigate();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -80,11 +81,31 @@ export default function Layout() {
     }
   }, [drawerOpen]);
 
+  const fontFamily = font === "opendyslexic" ? "OpenDyslexic, sans-serif" : "Inter, sans-serif";
+  const filterVal  = colorFilter !== "none" ? `url(#a11y-${colorFilter})` : undefined;
+
   return (
     <div
       className="flex w-full min-h-screen"
-      style={{ background: c.bg, fontFamily: "Inter, sans-serif" }}
+      style={{ background: c.bg, fontFamily, zoom: textSize, filter: filterVal }}
     >
+      {/* Hidden SVG: color vision correction filter definitions */}
+      <svg style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }} aria-hidden="true">
+        <defs>
+          <filter id="a11y-protanopia">
+            <feColorMatrix type="matrix" values="0.567 0.433 0 0 0  0.558 0.442 0 0 0  0 0.242 0.758 0 0  0 0 0 1 0" />
+          </filter>
+          <filter id="a11y-deuteranopia">
+            <feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0" />
+          </filter>
+          <filter id="a11y-tritanopia">
+            <feColorMatrix type="matrix" values="0.95 0.05 0 0 0  0 0.433 0.567 0 0  0 0.475 0.525 0 0  0 0 0 1 0" />
+          </filter>
+          <filter id="a11y-achromatopsia">
+            <feColorMatrix type="matrix" values="0.299 0.587 0.114 0 0  0.299 0.587 0.114 0 0  0.299 0.587 0.114 0 0  0 0 0 1 0" />
+          </filter>
+        </defs>
+      </svg>
       {/* Desktop sidebar — only visible lg+ */}
       <aside
         className="hidden lg:flex flex-col w-[240px] min-h-screen shrink-0 border-r sticky top-0 h-screen overflow-hidden"
@@ -105,7 +126,11 @@ export default function Layout() {
           borderColor: c.navBorder,
         }}
       >
-        <h1 className="tracking-tight" style={{ fontSize: 20, fontWeight: 700, color: c.text }}>
+        <h1
+          className="tracking-tight cursor-pointer"
+          style={{ fontSize: 20, fontWeight: 700, color: c.text }}
+          onClick={() => navigate("/app")}
+        >
           Sky<span style={{ color: "#2D7EFF" }}>Spot</span>
         </h1>
         <button

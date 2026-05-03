@@ -1,8 +1,43 @@
 import { useState, useEffect } from "react";
 
-type Theme = "dark" | "light" | "amoled";
+export type FontChoice  = "inter" | "opendyslexic";
+export type ColorFilter = "none" | "protanopia" | "deuteranopia" | "tritanopia" | "achromatopsia";
 
-let currentTheme: Theme = "dark";
+interface A11ySettings { textSize: number; font: FontChoice; colorFilter: ColorFilter; }
+const DEFAULT_A11Y: A11ySettings = { textSize: 1, font: "inter", colorFilter: "none" };
+
+function loadA11y(): A11ySettings {
+  try { const r = localStorage.getItem("skyspot_a11y"); if (r) return { ...DEFAULT_A11Y, ...JSON.parse(r) }; } catch {}
+  return DEFAULT_A11Y;
+}
+
+let currentA11y = loadA11y();
+const a11yListeners = new Set<(s: A11ySettings) => void>();
+
+function setGlobalA11y(s: A11ySettings) {
+  currentA11y = s;
+  localStorage.setItem("skyspot_a11y", JSON.stringify(s));
+  a11yListeners.forEach(fn => fn(s));
+}
+
+export function useAccessibility() {
+  const [a11y, setA11y] = useState<A11ySettings>(currentA11y);
+  useEffect(() => {
+    const h = (s: A11ySettings) => setA11y(s);
+    a11yListeners.add(h);
+    return () => { a11yListeners.delete(h); };
+  }, []);
+  return {
+    ...a11y,
+    setTextSize:    (v: number)      => setGlobalA11y({ ...currentA11y, textSize: v }),
+    setFont:        (v: FontChoice)  => setGlobalA11y({ ...currentA11y, font: v }),
+    setColorFilter: (v: ColorFilter) => setGlobalA11y({ ...currentA11y, colorFilter: v }),
+  };
+}
+
+type Theme = "default" | "light" | "amoled";
+
+let currentTheme: Theme = "default";
 const listeners = new Set<(t: Theme) => void>();
 
 function setGlobalTheme(t: Theme) {
@@ -25,7 +60,7 @@ export function useTheme() {
 
 export function useColors() {
   const { theme } = useTheme();
-  const dark = theme === "dark" || theme === "amoled";
+  const dark = theme === "default" || theme === "amoled";
   const amoled = theme === "amoled";
   const base = amoled ? "#000000" : "#0A0E1A";
   const baseCard = amoled ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.04)";
