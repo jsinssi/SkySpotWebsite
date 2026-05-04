@@ -4,12 +4,21 @@ import { ChevronRight, Moon, Sun, Bell, Car, Bike, Truck, Zap, LogOut, LogIn, Pe
 import { useColors, useTheme, useAccessibility } from "./ThemeContext";
 import type { FontChoice, ColorFilter } from "./ThemeContext";
 
+const fontOptions: { id: FontChoice; label: string; family: string }[] = [
+  { id: "inter",        label: "Inter",     family: "Inter, sans-serif" },
+  { id: "opendyslexic", label: "Dyslexic",  family: "OpenDyslexic, sans-serif" },
+  { id: "lexend",       label: "Lexend",    family: "Lexend, sans-serif" },
+  { id: "atkinson",     label: "Atkinson",  family: "Atkinson Hyperlegible, sans-serif" },
+  { id: "nunito",       label: "Nunito",    family: "Nunito, sans-serif" },
+  { id: "comicneue",    label: "Comic",     family: "'Comic Neue', cursive" },
+];
+
 const colorFilterOptions: { id: ColorFilter; label: string; sub: string }[] = [
   { id: "none",          label: "None",          sub: "No filter" },
   { id: "protanopia",    label: "Protanopia",    sub: "Red-Blind" },
   { id: "deuteranopia",  label: "Deuteranopia",  sub: "Green-Blind" },
   { id: "tritanopia",    label: "Tritanopia",    sub: "Blue-Blind" },
-  { id: "achromatopsia", label: "Achromatopsia", sub: "Complete Color Blindness" },
+  { id: "achromatopsia", label: "Achromatopsia", sub: "Complete Colour Blindness" },
 ];
 
 const vehicles = [
@@ -185,21 +194,21 @@ export default function Profile() {
         {/* Font */}
         <div className="p-4 rounded-xl" style={{ background: c.card, border: `1px solid ${c.cardBorder}` }}>
           <label style={{ color: c.textMuted }} className="text-[12px] mb-2 block">Font</label>
-          <div className="flex gap-2">
-            {(["inter", "opendyslexic"] as FontChoice[]).map((f) => {
-              const active = font === f;
+          <div className="grid grid-cols-3 gap-2">
+            {fontOptions.map((fo) => {
+              const active = font === fo.id;
               return (
                 <button
-                  key={f}
-                  onClick={() => setFont(f)}
-                  className="flex-1 flex flex-col items-center gap-1 py-3 rounded-xl transition-colors"
+                  key={fo.id}
+                  onClick={() => setFont(fo.id)}
+                  className="flex flex-col items-center gap-1 py-3 rounded-xl transition-colors"
                   style={{
                     background: active ? c.accentBg : "transparent",
                     border: `1px solid ${active ? c.accentBorder : c.cardBorder}`,
                   }}
                 >
                   <span style={{
-                    fontFamily: f === "opendyslexic" ? "OpenDyslexic, sans-serif" : "Inter, sans-serif",
+                    fontFamily: fo.family,
                     fontSize: 20,
                     fontWeight: 700,
                     color: active ? c.accent : c.textSecondary,
@@ -207,8 +216,8 @@ export default function Profile() {
                   }}>
                     Aa
                   </span>
-                  <span style={{ color: active ? c.accent : c.textMuted }} className="text-[10px]">
-                    {f === "opendyslexic" ? "OpenDyslexic" : "Inter"}
+                  <span style={{ color: active ? c.accent : c.textMuted }} className="text-[10px] text-center leading-tight px-1">
+                    {fo.label}
                   </span>
                 </button>
               );
@@ -218,7 +227,7 @@ export default function Profile() {
 
         {/* Color Vision Filter */}
         <div className="p-4 rounded-xl" style={{ background: c.card, border: `1px solid ${c.cardBorder}` }}>
-          <label style={{ color: c.textMuted }} className="text-[12px] mb-2 block">Color Vision Filter</label>
+          <label style={{ color: c.textMuted }} className="text-[12px] mb-2 block">Colour Vision Filter</label>
           <div className="flex flex-col gap-1.5">
             {colorFilterOptions.map((opt) => {
               const active = colorFilter === opt.id;

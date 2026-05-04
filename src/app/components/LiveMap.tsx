@@ -2,53 +2,31 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
 import {
   Bell, RefreshCw, Satellite, Map as MapIcon,
-  Loader2, AlertCircle, LocateFixed, Plus, Minus,
+  Loader2, AlertCircle, LocateFixed, Plus, Minus, Sun, Moon,
 } from "lucide-react";
 import { useColors, useTheme } from "./ThemeContext";
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
-import L from "leaflet";
 import type { Map as LeafletMap } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import "leaflet.gridlayer.googlemutant";
 import fullGeoJson from "../../imports/full_carpark.json";
 
-// ── Google Maps ───────────────────────────────────────────────────────────────
-const GOOGLE_MAPS_KEY = "AIzaSyCi6zq0swx6BszXdZuY9CQxhAjV4EL81fw";
+// ── Tile definitions ──────────────────────────────────────────────────────────
+const CARTO_ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SNAZZY_STYLES: any[] = [
-  { elementType: "geometry", stylers: [{ color: "#0d1117" }] },
-  { elementType: "labels.text.fill", stylers: [{ color: "#4a5568" }] },
-  { elementType: "labels.text.stroke", stylers: [{ color: "#0d1117" }] },
-  { featureType: "administrative", elementType: "geometry", stylers: [{ visibility: "off" }] },
-  { featureType: "administrative.country", elementType: "labels.text.fill", stylers: [{ color: "#3a4a5c" }] },
-  { featureType: "administrative.locality", elementType: "labels.text.fill", stylers: [{ color: "#3d5a6e" }] },
-  { featureType: "poi", stylers: [{ visibility: "off" }] },
-  { featureType: "poi.park", elementType: "geometry", stylers: [{ color: "#111a1f" }, { visibility: "simplified" }] },
-  { featureType: "road", elementType: "geometry", stylers: [{ color: "#1a2332" }] },
-  { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#0f1820" }] },
-  { featureType: "road", elementType: "labels.text.fill", stylers: [{ color: "#2d3f52" }] },
-  { featureType: "road.arterial", elementType: "geometry", stylers: [{ color: "#1c2d3e" }] },
-  { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#1e3148" }] },
-  { featureType: "road.highway", elementType: "geometry.stroke", stylers: [{ color: "#0f2030" }] },
-  { featureType: "road.local", elementType: "geometry", stylers: [{ color: "#131d27" }] },
-  { featureType: "transit", stylers: [{ visibility: "off" }] },
-  { featureType: "water", elementType: "geometry", stylers: [{ color: "#080e16" }] },
-  { featureType: "water", elementType: "labels.text.fill", stylers: [{ color: "#1a2d3d" }] },
-  { featureType: "landscape", elementType: "geometry", stylers: [{ color: "#0d1117" }] },
-  { featureType: "landscape.man_made", elementType: "geometry", stylers: [{ color: "#111820" }] },
-  { featureType: "landscape.natural", elementType: "geometry", stylers: [{ color: "#0a0f14" }] },
-];
-
-// ── Tile definitions (non-Google themes) ─────────────────────────────────────
 const TILES = {
   light: {
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   },
-  amoled: {
+  // Default dark theme — CartoDB Dark Matter (street labels visible)
+  dark: {
     url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    attribution: CARTO_ATTR,
+  },
+  // AMOLED — same provider, no labels for a cleaner true-black look
+  amoled: {
+    url: "https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
+    attribution: CARTO_ATTR,
   },
   aerial: {
     url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
@@ -130,38 +108,13 @@ function MapRefCapture({ onMap }: { onMap: (m: LeafletMap) => void }) {
   return null;
 }
 
-// Renders a Google Maps Mutant layer with the Snazzy dark style
-function GoogleMutantLayer() {
-  const map = useMap();
-  useEffect(() => {
-    // @ts-ignore — leaflet.gridlayer.googlemutant extends L at runtime
-    const layer = L.gridLayer.googleMutant({ type: "roadmap", styles: SNAZZY_STYLES, maxZoom: 21 });
-    layer.addTo(map);
-    return () => { map.removeLayer(layer); };
-  }, [map]);
-  return null;
-}
-
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function LiveMap() {
   const navigate  = useNavigate();
   const c         = useColors();
   const { theme } = useTheme();
   const mapRef    = useRef<LeafletMap | null>(null);
-  const [googleReady, setGoogleReady] = useState(false);
-
-  // Load Google Maps JS API once
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if ((window as any).google?.maps) { setGoogleReady(true); return; }
-    if (document.querySelector('script[data-gmaps]')) return;
-    const script = document.createElement("script");
-    script.setAttribute("data-gmaps", "1");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_KEY}`;
-    script.async = true;
-    script.onload = () => setGoogleReady(true);
-    document.head.appendChild(script);
-  }, []);
+  const [tileStyle, setTileStyle] = useState<"dark" | "light">("dark");
 
   const [dbData,     setDbData]     = useState<SpacesResponse | null>(null);
   const [loading,    setLoading]    = useState(true);
@@ -212,7 +165,7 @@ export default function LiveMap() {
       ? TILES.light
       : theme === "amoled"
         ? TILES.amoled
-        : null; // default theme → GoogleMutantLayer
+        : tileStyle === "light" ? TILES.light : TILES.dark; // default: user-selected light or dark
   const isDark     = theme === "default" || theme === "amoled";
   const pillBg     = isDark ? "rgba(10,14,26,0.82)" : "rgba(255,255,255,0.92)";
   const pillText   = isDark ? "#e2e8f0" : "#1e293b";
@@ -290,17 +243,13 @@ export default function LiveMap() {
             >
               <MapRefCapture onMap={(m) => { mapRef.current = m; }} />
 
-              {baseTile ? (
-                <TileLayer
-                  key={`${theme}-${mapStyle}`}
-                  url={baseTile.url}
-                  attribution={baseTile.attribution}
-                  maxZoom={21}
-                  maxNativeZoom={19}
-                />
-              ) : (
-                googleReady && <GoogleMutantLayer key="gmutant" />
-              )}
+              <TileLayer
+                key={`${theme}-${mapStyle}`}
+                url={baseTile.url}
+                attribution={baseTile.attribution}
+                maxZoom={21}
+                maxNativeZoom={19}
+              />
 
               {mergedSpaces.map(({ properties: p, geometry: g, dbStatus: d }) => {
                 const [lon, lat] = g.coordinates;
@@ -336,15 +285,30 @@ export default function LiveMap() {
               })}
             </MapContainer>
 
-            {/* Street / Aerial toggle */}
-            <button
-              onClick={() => setMapStyle((s) => s === "street" ? "aerial" : "street")}
-              className="absolute top-2 right-2 z-[1000] flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold shadow-md transition-all active:scale-95"
-              style={{ background: pillBg, color: pillText, border: `1px solid ${pillBorder}`, backdropFilter: "blur(6px)" }}
-            >
-              {mapStyle === "street" ? <Satellite size={11} /> : <MapIcon size={11} />}
-              {mapStyle === "street" ? "Aerial" : "Street"}
-            </button>
+            {/* Map style controls — top right */}
+            <div className="absolute top-2 right-2 z-[1000] flex flex-col gap-1.5">
+              {/* Map / Aerial toggle */}
+              <button
+                onClick={() => setMapStyle((s) => s === "street" ? "aerial" : "street")}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold shadow-md transition-all active:scale-95"
+                style={{ background: pillBg, color: pillText, border: `1px solid ${pillBorder}`, backdropFilter: "blur(6px)" }}
+              >
+                {mapStyle === "street" ? <Satellite size={11} /> : <MapIcon size={11} />}
+                {mapStyle === "street" ? "Aerial" : "Map"}
+              </button>
+
+              {/* Light / Dark tile toggle — only for default theme in street mode */}
+              {theme === "default" && mapStyle === "street" && (
+                <button
+                  onClick={() => setTileStyle((s) => s === "dark" ? "light" : "dark")}
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold shadow-md transition-all active:scale-95"
+                  style={{ background: pillBg, color: pillText, border: `1px solid ${pillBorder}`, backdropFilter: "blur(6px)" }}
+                >
+                  {tileStyle === "dark" ? <Sun size={11} /> : <Moon size={11} />}
+                  {tileStyle === "dark" ? "Light" : "Dark"}
+                </button>
+              )}
+            </div>
 
             {/* Legend */}
             <div className="absolute top-2 left-2 z-[1000] flex flex-col gap-1">

@@ -19,4 +19,12 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
+
+  // Force Leaflet and the GoogleMutant plugin into the same pre-bundle so they
+  // share one module instance. Without this, Vite can process them separately
+  // and the plugin's L.GridLayer.GoogleMutant assignment targets a different
+  // object than the one LiveMap.tsx imports, causing "is not a constructor".
+  optimizeDeps: {
+    include: ['leaflet', 'leaflet.gridlayer.googlemutant'],
+  },
 })

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export type FontChoice  = "inter" | "opendyslexic";
+export type FontChoice  = "inter" | "opendyslexic" | "lexend" | "atkinson" | "nunito" | "comicneue";
 export type ColorFilter = "none" | "protanopia" | "deuteranopia" | "tritanopia" | "achromatopsia";
 
 interface A11ySettings { textSize: number; font: FontChoice; colorFilter: ColorFilter; }

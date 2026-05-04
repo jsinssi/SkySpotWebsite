@@ -81,13 +81,26 @@ export default function Layout() {
     }
   }, [drawerOpen]);
 
-  const fontFamily = font === "opendyslexic" ? "OpenDyslexic, sans-serif" : "Inter, sans-serif";
-  const filterVal  = colorFilter !== "none" ? `url(#a11y-${colorFilter})` : undefined;
+  const fontFamilyMap: Record<string, string> = {
+    inter:        "Inter, sans-serif",
+    opendyslexic: "OpenDyslexic, sans-serif",
+    lexend:       "Lexend, sans-serif",
+    atkinson:     "Atkinson Hyperlegible, sans-serif",
+    nunito:       "Nunito, sans-serif",
+    comicneue:    "'Comic Neue', cursive",
+  };
+  const fontFamily = fontFamilyMap[font] ?? "Inter, sans-serif";
+
+  // Applying filter to ANY ancestor of a position:fixed element re-anchors it
+  // away from the viewport (CSS spec + a Safari/WebKit bug that affects even
+  // <html>). The solution is to apply the filter directly to each individual
+  // visible element rather than to a parent container.
+  const filterCSS = colorFilter !== "none" ? `url(#a11y-${colorFilter})` : undefined;
 
   return (
     <div
       className="flex w-full min-h-screen"
-      style={{ background: c.bg, fontFamily, zoom: textSize, filter: filterVal }}
+      style={{ background: c.bg, fontFamily, zoom: textSize }}
     >
       {/* Hidden SVG: color vision correction filter definitions */}
       <svg style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }} aria-hidden="true">
@@ -112,18 +125,21 @@ export default function Layout() {
         style={{
           background: c.dark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.01)",
           borderColor: c.cardBorder,
+          filter: filterCSS,
         }}
       >
         <SidebarContent onNavigate={() => {}} />
       </aside>
 
-      {/* Mobile top bar */}
+      {/* Mobile top bar — filter applied directly here, NOT on a parent, so
+           position:fixed viewport-anchoring is never broken by an ancestor filter */}
       <div
         className="lg:hidden fixed top-0 left-0 right-0 z-[99999] flex items-center px-4 py-3 border-b"
         style={{
           background: c.navBg,
           backdropFilter: "blur(20px)",
           borderColor: c.navBorder,
+          filter: filterCSS,
         }}
       >
         <h1
@@ -164,6 +180,7 @@ export default function Layout() {
             width: "min(80vw, 300px)",
             background: c.dark ? "rgba(18,18,22,0.98)" : "#fff",
             borderLeft: `1px solid ${c.cardBorder}`,
+            filter: filterCSS,
           }}
         >
           <div className="flex items-center justify-end px-4 py-3 border-b" style={{ borderColor: c.navBorder }}>
@@ -182,6 +199,7 @@ export default function Layout() {
 
       <main
         className="flex-1 min-h-screen overflow-y-auto pt-[56px] lg:pt-0"
+        style={{ filter: filterCSS }}
       >
         <div className="w-full max-w-[860px] mx-auto h-full min-h-[calc(100vh-56px)] lg:min-h-screen">
           <Outlet />
